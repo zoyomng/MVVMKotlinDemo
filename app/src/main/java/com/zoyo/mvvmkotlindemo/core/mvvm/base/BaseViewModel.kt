@@ -9,7 +9,7 @@ import com.zoyo.mvvmkotlindemo.App
 /**
  * Copyright (c) dtelec, Inc All Rights Reserved.
  */
-open  class BaseViewModel : AndroidViewModel(App.appContext), IBaseViewModel {
+open class BaseViewModel : AndroidViewModel(App.appContext), IBaseViewModel {
     override fun onAny(owner: LifecycleOwner, event: Lifecycle.Event) {
         TODO("Not yet implemented")
     }
@@ -37,4 +37,6 @@ open  class BaseViewModel : AndroidViewModel(App.appContext), IBaseViewModel {
     override fun onDestroy() {
         TODO("Not yet implemented")
     }
+
+
 }

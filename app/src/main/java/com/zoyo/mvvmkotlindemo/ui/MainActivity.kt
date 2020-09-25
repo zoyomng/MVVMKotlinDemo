@@ -1,6 +1,5 @@
 package com.zoyo.mvvmkotlindemo.ui
 
-import androidx.activity.viewModels
 import com.zoyo.mvvmkotlindemo.BR
 import com.zoyo.mvvmkotlindemo.R
 import com.zoyo.mvvmkotlindemo.core.mvvm.base.BaseActivity

@@ -28,6 +28,9 @@ abstract class BaseActivity<T : ViewDataBinding, VM : BaseViewModel>(
         dataBinding.setVariable(variableId, baseViewModel)
         //让viewModel拥有View的生命周期
         lifecycle.addObserver(baseViewModel)
+
+        //初始化数据
+        initData()
     }
 
 
