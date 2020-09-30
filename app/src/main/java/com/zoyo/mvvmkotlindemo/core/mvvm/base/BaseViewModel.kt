@@ -9,33 +9,26 @@ import com.zoyo.mvvmkotlindemo.App
 /**
  * Copyright (c) dtelec, Inc All Rights Reserved.
  */
-open class BaseViewModel : AndroidViewModel(App.appContext), IBaseViewModel {
+open class BaseViewModel : ViewModel(), IBaseViewModel {
     override fun onAny(owner: LifecycleOwner, event: Lifecycle.Event) {
-        TODO("Not yet implemented")
     }
 
     override fun onCreate() {
-        TODO("Not yet implemented")
     }
 
     override fun onStart() {
-        TODO("Not yet implemented")
     }
 
     override fun onResume() {
-        TODO("Not yet implemented")
     }
 
     override fun onPause() {
-        TODO("Not yet implemented")
     }
 
     override fun onStop() {
-        TODO("Not yet implemented")
     }
 
     override fun onDestroy() {
-        TODO("Not yet implemented")
     }
 
 

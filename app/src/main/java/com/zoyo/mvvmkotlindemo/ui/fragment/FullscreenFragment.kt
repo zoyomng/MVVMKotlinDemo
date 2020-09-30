@@ -1,4 +1,4 @@
-package com.zoyo.mvvmkotlindemo
+package com.zoyo.mvvmkotlindemo.ui.fragment
 
 import android.os.Bundle
 import android.os.Handler
@@ -9,6 +9,7 @@ import android.view.WindowManager
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.zoyo.mvvmkotlindemo.R
 
 /**
  * An example full-screen fragment that shows and hides the system UI (i.e.

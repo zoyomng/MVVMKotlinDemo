@@ -1,10 +1,11 @@
-package com.zoyo.mvvmkotlindemo
+package com.zoyo.mvvmkotlindemo.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.zoyo.mvvmkotlindemo.R
 
 import com.zoyo.mvvmkotlindemo.dummy.DummyContent.DummyItem
 

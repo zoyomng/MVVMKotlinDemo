@@ -1,37 +1,48 @@
 package com.zoyo.mvvmkotlindemo.core.mvvm.base
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.annotation.LayoutRes
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.databinding.library.baseAdapters.BR
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
+import com.zoyo.mvvmkotlindemo.BR
+import java.util.*
 
 /**
  * Copyright (c) dtelec, Inc All Rights Reserved.
  */
-abstract class BaseActivity<T : ViewDataBinding>(
+abstract class BaseFragment<T : ViewDataBinding>(
     @LayoutRes val layoutResID: Int,
     val variableId: Int = BR.viewModel
-) : AppCompatActivity(), IBaseView {
+) : Fragment(), IBaseView {
+
     lateinit var dataBinding: T
     lateinit var viewModel: BaseViewModel
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        dataBinding = DataBindingUtil.setContentView<T>(this, layoutResID)
-        //设置LifecycleOwner,LifecycleOwner可以观察LiveData数据的变化以更新UI
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+
+        dataBinding = DataBindingUtil.inflate(inflater, layoutResID, container, false)
+        return dataBinding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         dataBinding.lifecycleOwner = this
 
         viewModel = getVM()
 
-        //将ViewModel跟相应的页面variableId(xml布局文件->layout->data->variable:name)进行绑定
         dataBinding.setVariable(variableId, viewModel)
-
-        //让viewModel拥有View的生命周期
         lifecycle.addObserver(viewModel)
-
-        //初始化数据
         initData()
     }
 
@@ -40,7 +51,7 @@ abstract class BaseActivity<T : ViewDataBinding>(
         if (this::dataBinding.isInitialized) {
             dataBinding.unbind()
         }
-        //解除ViewModel对生命周期的感应
         lifecycle.removeObserver(viewModel)
     }
+
 }
