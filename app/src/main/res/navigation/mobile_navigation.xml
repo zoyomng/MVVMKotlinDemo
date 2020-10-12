@@ -22,4 +22,12 @@
         android:name="com.zoyo.mvvmkotlindemo.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.zoyo.mvvmkotlindemo.ui.search.SearchFragment"
+        android:label="@string/title_search"
+        tools:layout="@layout/fragment_search" />
+    <action
+        android:id="@+id/action_global_navigation_search"
+        app:destination="@id/navigation_search" />
 </navigation>

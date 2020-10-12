@@ -1,13 +1,16 @@
 package com.zoyo.mvvmkotlindemo.ui.main
 
 import android.content.Intent
-import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.activity.viewModels
+import androidx.appcompat.widget.SearchView
+import androidx.appcompat.widget.SearchView.OnQueryTextListener
 import androidx.appcompat.widget.ShareActionProvider
 import androidx.core.view.MenuItemCompat
+import androidx.databinding.adapters.SearchViewBindingAdapter
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI.setupWithNavController
@@ -16,8 +19,11 @@ import com.zoyo.mvvmkotlindemo.BR
 import com.zoyo.mvvmkotlindemo.R
 import com.zoyo.mvvmkotlindemo.core.mvvm.base.BaseActivity
 import com.zoyo.mvvmkotlindemo.core.mvvm.base.BaseViewModel
+import com.zoyo.mvvmkotlindemo.core.mvvm.utils.LogUtil
 import com.zoyo.mvvmkotlindemo.databinding.MainActivityBinding
+import com.zoyo.mvvmkotlindemo.ui.search.SearchFragment
 import kotlinx.android.synthetic.main.main_activity.*
+
 
 class MainActivity :
     BaseActivity<MainActivityBinding>(R.layout.main_activity, BR.viewModel) {
@@ -28,10 +34,11 @@ class MainActivity :
     }
 
     private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var navController: NavController
 
     override fun initData() {
 
-        val navController = findNavController(R.id.nav_host_fragment)
+        navController = findNavController(R.id.nav_host_fragment)
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
@@ -45,13 +52,12 @@ class MainActivity :
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-//            if (destination.id == R.id.full_screen_destination) {
-//                toolbar.visibility = View.GONE
-//                bottomNavigationView.visibility = View.GONE
-//            } else {
-//                toolbar.visibility = View.VISIBLE
-//                bottomNavigationView.visibility = View.VISIBLE
-//            }
+            if (destination.id == R.id.navigation_search) {
+                bottomNavigationView.visibility = View.GONE
+            } else {
+                toolBar.visibility = View.VISIBLE
+                bottomNavigationView.visibility = View.VISIBLE
+            }
         }
         setupWithNavController(bottomNavigationView, navController)
         setupWithNavController(
@@ -61,30 +67,47 @@ class MainActivity :
             appBarConfiguration
         )
         setupWithNavController(toolBar, navController, drawerLayout)
-    }
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment)
-        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_top, menu)
 
         //搜索控件
-        val expandListener = object : MenuItem.OnActionExpandListener {
-            override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
-                return true
-            }
+        val searchItem = menu?.findItem(R.id.action_search)
 
-            override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
-                return true
-            }
+        val searchView = (searchItem?.actionView as SearchView).apply {
+
+            setOnSearchClickListener(object : View.OnClickListener {
+                override fun onClick(v: View?) {
+                    //点击"搜索"按钮,SearchView控件开始展开
+                    //可以切换搜索界面(fragment)
+                    LogUtil.e("SearchView-OnSearchClick")
+                    navController.navigate(R.id.action_global_navigation_search)
+                }
+            })
+            setOnQueryTextListener(object : OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    LogUtil.e("SearchView-onQueryTextSubmit")
+                    return false
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    LogUtil.e("SearchView-onQueryTextChange  $query")
+                    return false
+                }
+            })
+
+            setOnCloseListener(object : SearchView.OnCloseListener {
+                override fun onClose(): Boolean {
+                    //关闭搜索界面,切换列表页面(fragment)
+                    LogUtil.e("SearchView-onClose")
+                    navController.navigateUp()
+                    return false
+                }
+            })
 
         }
-
-        val searchItem = menu?.findItem(R.id.action_search)
-        searchItem?.setOnActionExpandListener(expandListener)
 
         //操作添加器
         val shareItem = menu?.findItem(R.id.action_share)
@@ -98,6 +121,12 @@ class MainActivity :
     }
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        R.id.action_search -> {
+//            TransitionManager.beginDelayedTransition(toolBar as ViewGroup)
+//            item.expandActionView()
+            true
+        }
+
         R.id.action_settings -> {
             true
         }
@@ -111,5 +140,14 @@ class MainActivity :
         else -> super.onOptionsItemSelected(item)
     }
 
+    /**
+     * 将back键点击事件委托出去,如果当前Fragment不是在最顶端,则返回上一个Fragment
+     *
+     * @return
+     */
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment)
+        return navController.navigateUp() || super.onSupportNavigateUp()
+    }
 
 }

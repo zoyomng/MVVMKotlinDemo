@@ -19,6 +19,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     override fun initData() {
         text_home.setOnClickListener(View.OnClickListener {
             startActivity(Intent(context, MainChildActivity::class.java))
+
         })
     }
 
