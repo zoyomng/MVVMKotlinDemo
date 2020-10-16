@@ -78,6 +78,10 @@ class MainActivity :
 
         val searchView = (searchItem?.actionView as SearchView).apply {
 
+            queryHint = "你想要的这里都有"
+            //true-代表在内部显示，false-代表在外部显示
+            setIconifiedByDefault(false)
+
             setOnSearchClickListener(object : View.OnClickListener {
                 override fun onClick(v: View?) {
                     //点击"搜索"按钮,SearchView控件开始展开
@@ -107,10 +111,11 @@ class MainActivity :
                 }
             })
 
+
         }
 
         //操作添加器
-        val shareItem = menu?.findItem(R.id.action_share)
+        val shareItem = menu.findItem(R.id.action_share)
         val shareActionProvider = MenuItemCompat.getActionProvider(shareItem) as ShareActionProvider
         val shareIntent = Intent(Intent.ACTION_SEND).apply {
             setType("image/*")
