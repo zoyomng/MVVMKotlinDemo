@@ -22,7 +22,7 @@ abstract class BaseFragment<T : ViewDataBinding>(
 ) : Fragment(), IBaseView {
 
     lateinit var dataBinding: T
-    lateinit var viewModel: BaseViewModel
+   private lateinit var viewModel: BaseViewModel
 
 
     override fun onCreateView(

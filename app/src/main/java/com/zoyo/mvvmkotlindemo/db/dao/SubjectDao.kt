@@ -1,5 +1,6 @@
 package com.zoyo.mvvmkotlindemo.db.dao
 
+import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -14,6 +15,9 @@ import com.zoyo.mvvmkotlindemo.db.Entity.Subject
 interface SubjectDao {
     @Query("SELECT * FROM subject")
     fun getAll(): List<Subject>
+
+    @Query("SELECT * FROM Subject ORDER BY subject_order COLLATE NOCASE ASC ")
+    fun getAllSubject():PagingSource<Int,Subject>
 
     @Insert
     fun insert(subject: Subject)

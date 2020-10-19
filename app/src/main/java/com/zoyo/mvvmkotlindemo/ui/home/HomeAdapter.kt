@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.zoyo.mvvmkotlindemo.R
 import com.zoyo.mvvmkotlindemo.db.Entity.Subject
+import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_home.*
 
 /**
@@ -17,9 +18,9 @@ class HomeAdapter : PagingDataAdapter<Subject, HomeViewHolder>(diffCallback) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
-        val container =
+        val containerView =
             LayoutInflater.from(parent.context).inflate(R.layout.item_home, parent, false)
-        return HomeViewHolder(container)
+        return HomeViewHolder(containerView)
     }
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
@@ -39,9 +40,13 @@ class HomeAdapter : PagingDataAdapter<Subject, HomeViewHolder>(diffCallback) {
     }
 }
 
-class HomeViewHolder(container: View) : RecyclerView.ViewHolder(container) {
+class HomeViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView),
+    LayoutContainer {
     fun bindContent(item: Subject?) {
-//        tvTitle.text = item.
+        item?.run {
+            tvNum.text = id.toString()
+            tvTitle.text = subjectTitle
+            tvContent.text = subjectDesc
+        }
     }
-
 }
