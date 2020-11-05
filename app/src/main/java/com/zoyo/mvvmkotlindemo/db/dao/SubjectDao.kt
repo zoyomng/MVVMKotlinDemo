@@ -5,7 +5,7 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import com.zoyo.mvvmkotlindemo.db.Entity.Subject
+import com.zoyo.mvvmkotlindemo.db.entity.Subject
 
 /**
  * Copyright (c) dtelec, Inc All Rights Reserved.

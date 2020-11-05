@@ -2,8 +2,8 @@ package com.zoyo.mvvmkotlindemo.ui.search
 
 import androidx.fragment.app.viewModels
 import com.zoyo.mvvmkotlindemo.R
-import com.zoyo.mvvmkotlindemo.core.mvvm.base.BaseFragment
-import com.zoyo.mvvmkotlindemo.core.mvvm.base.BaseViewModel
+import com.zoyo.mvvmkotlindemo.core.base.BaseFragment
+import com.zoyo.mvvmkotlindemo.core.base.BaseViewModel
 import com.zoyo.mvvmkotlindemo.databinding.MainActivityBinding
 import com.zoyo.mvvmkotlindemo.ui.main.MainViewModel
 

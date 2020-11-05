@@ -1,36 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:padding="6dp"
-    android:layout_height="wrap_content">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/tvNum"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:gravity="center"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="1" />
+    <data>
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:gravity="center_vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvNum"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="title" />
+        <variable
+            name="model"
+            type="com.zoyo.mvvmkotlindemo.db.entity.Subject" />
 
-    <TextView
-        android:id="@+id/tvContent"
-        android:layout_width="0dp"
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/tvTitle"
-        app:layout_constraintStart_toStartOf="@+id/tvTitle"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-        tools:text="content" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="12dp"
+        app:cardCornerRadius="3dp"
+        app:contentPadding="6dp">
+
+        <TextView
+            android:id="@+id/tvNum"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="@{String.valueOf(model.id)}"
+            tools:text="1" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/TextAppearance.AppCompat.Menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:gravity="center_vertical"
+            android:text="@{model.subjectTitle}"
+            tools:text="title" />
+
+        <TextView
+            android:id="@+id/tvContent"
+            style="@style/TextAppearance.AppCompat.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp"
+            android:text="@{model.subjectDesc}"
+            tools:text="content" />
+    </androidx.cardview.widget.CardView>
+</layout>

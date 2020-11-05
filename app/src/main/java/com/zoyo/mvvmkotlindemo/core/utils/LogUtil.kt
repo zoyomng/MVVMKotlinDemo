@@ -1,4 +1,4 @@
-package com.zoyo.mvvmkotlindemo.core.mvvm.utils
+package com.zoyo.mvvmkotlindemo.core.utils
 
 import android.util.Log
 import com.zoyo.mvvmkotlindemo.App
@@ -18,19 +18,19 @@ object LogUtil {
     }
 
 
-    fun w(msg: String?) {
+    fun w(msg: String) {
         if (isDebug) {
             Log.w(TAG, msg)
         }
     }
 
-    fun d(msg: String?) {
+    fun d(msg: String) {
         if (isDebug) {
             Log.d(TAG, msg)
         }
     }
 
-    fun i(msg: String?) {
+    fun i(msg: String) {
         if (isDebug) {
             Log.i(TAG, msg)
         }

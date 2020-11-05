@@ -9,7 +9,6 @@ import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.SearchView.OnQueryTextListener
 import androidx.appcompat.widget.ShareActionProvider
 import androidx.core.view.MenuItemCompat
-import androidx.databinding.adapters.SearchViewBindingAdapter
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -17,11 +16,10 @@ import androidx.navigation.ui.NavigationUI.setupWithNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.zoyo.mvvmkotlindemo.BR
 import com.zoyo.mvvmkotlindemo.R
-import com.zoyo.mvvmkotlindemo.core.mvvm.base.BaseActivity
-import com.zoyo.mvvmkotlindemo.core.mvvm.base.BaseViewModel
-import com.zoyo.mvvmkotlindemo.core.mvvm.utils.LogUtil
+import com.zoyo.mvvmkotlindemo.core.base.BaseActivity
+import com.zoyo.mvvmkotlindemo.core.base.BaseViewModel
+import com.zoyo.mvvmkotlindemo.core.utils.LogUtil
 import com.zoyo.mvvmkotlindemo.databinding.MainActivityBinding
-import com.zoyo.mvvmkotlindemo.ui.search.SearchFragment
 import kotlinx.android.synthetic.main.main_activity.*
 
 
@@ -80,7 +78,7 @@ class MainActivity :
 
             queryHint = "你想要的这里都有"
             //true-代表在内部显示，false-代表在外部显示
-            setIconifiedByDefault(false)
+//            setIconifiedByDefault(false)
 
             setOnSearchClickListener(object : View.OnClickListener {
                 override fun onClick(v: View?) {

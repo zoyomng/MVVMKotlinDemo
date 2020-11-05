@@ -1,4 +1,4 @@
-package com.zoyo.mvvmkotlindemo.core.mvvm.base
+package com.zoyo.mvvmkotlindemo.core.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,10 +8,7 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModel
 import com.zoyo.mvvmkotlindemo.BR
-import java.util.*
 
 /**
  * Copyright (c) dtelec, Inc All Rights Reserved.

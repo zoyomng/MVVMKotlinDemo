@@ -1,4 +1,4 @@
-package com.zoyo.mvvmkotlindemo.core.mvvm.base
+package com.zoyo.mvvmkotlindemo.core.base
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver

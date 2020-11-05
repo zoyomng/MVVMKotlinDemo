@@ -1,10 +1,8 @@
-package com.zoyo.mvvmkotlindemo.core.mvvm.base
+package com.zoyo.mvvmkotlindemo.core.base
 
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
-import com.zoyo.mvvmkotlindemo.App
 
 /**
  * Copyright (c) dtelec, Inc All Rights Reserved.

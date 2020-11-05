@@ -5,15 +5,21 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.zoyo.mvvmkotlindemo.db.Entity.Subject
+import com.zoyo.mvvmkotlindemo.constant.Constant
+import com.zoyo.mvvmkotlindemo.db.entity.Cheese
+import com.zoyo.mvvmkotlindemo.db.entity.Subject
+import com.zoyo.mvvmkotlindemo.db.dao.CheeseDao
 import com.zoyo.mvvmkotlindemo.db.dao.SubjectDao
 
 /**
  * Copyright (c) dtelec, Inc All Rights Reserved.
  */
-@Database(entities = arrayOf(Subject::class), version = 1)
+@Database(entities = arrayOf(Subject::class, Cheese::class), version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun subjectDao(): SubjectDao
+    abstract fun cheeseDao(): CheeseDao
+
+
     companion object {
         private var instance: AppDatabase? = null
 
@@ -36,13 +42,11 @@ abstract class AppDatabase : RoomDatabase() {
 
         private fun fillInDb(context: Context) {
             ioThread {
-                get(context).subjectDao().insert(Subject_Data)
+                get(context).cheeseDao()
+                    .insert(Constant.CHEESE_DATA.map { Cheese(id = 0, name = it) })
+
+                get(context).subjectDao().insert(Constant.SUBJECT_DATA)
             }
         }
     }
 }
-
-private val Subject_Data = arrayListOf(
-    Subject(id = 1,subjectTitle = "Page分页","架构组件-list的Item动态更新",1,"")
-
-)

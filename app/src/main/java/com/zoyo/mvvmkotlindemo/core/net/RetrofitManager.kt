@@ -1,6 +1,4 @@
-package com.zoyo.mvvmkotlindemo.core.mvvm.net
-
-import android.os.Build
+package com.zoyo.mvvmkotlindemo.core.net
 
 /**
  * Copyright (c) dtelec, Inc All Rights Reserved.

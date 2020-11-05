@@ -1,14 +1,12 @@
 package com.zoyo.mvvmkotlindemo.ui.main
 
 import android.graphics.Color
-import androidx.activity.viewModels
-import androidx.core.graphics.ColorUtils
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.viewModelScope
-import com.zoyo.mvvmkotlindemo.core.mvvm.base.BaseViewModel
-import com.zoyo.mvvmkotlindemo.core.mvvm.utils.LogUtil
-import com.zoyo.mvvmkotlindemo.core.mvvm.widget.toast.Toaster
+import com.zoyo.mvvmkotlindemo.core.base.BaseViewModel
+import com.zoyo.mvvmkotlindemo.core.utils.LogUtil
+import com.zoyo.mvvmkotlindemo.core.widget.toast.Toaster
 import com.zoyo.mvvmkotlindemo.model.MainItemData
 import kotlinx.coroutines.launch
 import kotlin.random.Random

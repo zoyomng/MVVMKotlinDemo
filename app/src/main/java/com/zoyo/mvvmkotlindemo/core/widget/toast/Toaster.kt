@@ -1,12 +1,9 @@
-package com.zoyo.mvvmkotlindemo.core.mvvm.widget.toast
+package com.zoyo.mvvmkotlindemo.core.widget.toast
 
-import android.content.Context
 import android.graphics.Typeface
-import android.graphics.drawable.Drawable
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -105,9 +102,6 @@ object Toaster {
         text: CharSequence,
         @ColorRes textColor: Int = R.color.defaultTextColor,
         @DrawableRes icon: Int? = null,
-        @ColorRes tintColor: Int? = null,
-        isTintBackgroundRes: Boolean = true,
-        duration: Int = Toast.LENGTH_SHORT
     ): Toast {
 
         val currentToast: Toast = Toast(App.appContext)
