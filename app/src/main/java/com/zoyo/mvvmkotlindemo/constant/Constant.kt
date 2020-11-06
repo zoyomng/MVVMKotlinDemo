@@ -17,17 +17,17 @@ class Constant {
         )
         val SUBJECT_DATA = arrayListOf<Subject>(
             subject,
-            subject,
-            subject,
-            subject,
-            subject,
-            subject,
-            subject,
-            subject,
-            subject,
-            subject,
-            subject,
-            subject
+            subject.copy(id = 2),
+            subject.copy(id = 3),
+            subject.copy(id = 4),
+            subject.copy(id = 5),
+            subject.copy(id = 6),
+            subject.copy(id = 7),
+            subject.copy(id = 8),
+            subject.copy(id = 9),
+            subject.copy(id = 10),
+            subject.copy(id = 11),
+            subject.copy(id = 12)
         )
         val CHEESE_DATA = arrayListOf(
             "Abbaye de Belloc", "Abbaye du Mont des Cats", "Abertam", "Abondance", "Ackawi",

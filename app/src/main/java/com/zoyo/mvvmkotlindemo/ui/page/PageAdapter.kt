@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.item_page.*
 
 /**
  * Copyright (c) dtelec, Inc All Rights Reserved.
+ * 分页库可帮助您一次加载和显示一小块数据。按需载入部分数据会减少网络带宽和系统资源的使用量。
  */
 class PageAdapter : PagingDataAdapter<Cheese, PageViewHolder>(diffCallback) {
 
@@ -29,8 +30,8 @@ class PageAdapter : PagingDataAdapter<Cheese, PageViewHolder>(diffCallback) {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PageViewHolder {
-        val containerView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_page, parent, false)
+        val containerView =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_page, parent, false)
         return PageViewHolder(containerView)
     }
 

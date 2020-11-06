@@ -1,5 +1,6 @@
 package com.zoyo.mvvmkotlindemo.ui.page
 
+import android.view.KeyEvent
 import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -10,11 +11,12 @@ import com.zoyo.mvvmkotlindemo.R
 import com.zoyo.mvvmkotlindemo.core.base.BaseFragment
 import com.zoyo.mvvmkotlindemo.core.base.BaseViewModel
 import com.zoyo.mvvmkotlindemo.databinding.FragmentHomeBinding
+import com.zoyo.mvvmkotlindemo.databinding.FragmentPageBinding
 import kotlinx.android.synthetic.main.fragment_page.*
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-class PageFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_page) {
+class PageFragment : BaseFragment<FragmentPageBinding>(R.layout.fragment_page) {
     private val pageViewModel by viewModels<PageViewModel>()
 
     override fun getVM(): BaseViewModel {
@@ -26,11 +28,35 @@ class PageFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_page) {
         val adapter = PageAdapter()
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapter
+
+
+        //将适配器订阅到ViewModel，当列表发生变化时以便刷新适配器中的项
         lifecycleScope.launch {
             pageViewModel.allCheeses.collectLatest { adapter.submitData(it) }
         }
 
-        //RecyclerView:条目触摸帮助类-左滑/右滑/拖拽
+        initSwipeToDelete()
+
+        initEditorListener()
+    }
+
+    /**
+     * 输入法键盘上的各种键,false:隐藏键盘,true:保留键盘
+     */
+    private fun initEditorListener() {
+        textInputEditText.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_GO) {
+                addCheese()
+                return@setOnEditorActionListener true
+            }
+            false
+        }
+    }
+
+    /**
+     * RecyclerView:条目触摸帮助类-左滑/右滑/拖拽
+     */
+    private fun initSwipeToDelete() {
         ItemTouchHelper(object : ItemTouchHelper.Callback() {
 
             //动作
@@ -51,16 +77,7 @@ class PageFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_page) {
                     pageViewModel.remove(it)
                 }
             }
-        })
-
-        //输入法
-        textInputEditText.setOnEditorActionListener { _, actionId, _ ->
-            if (actionId == EditorInfo.IME_ACTION_SEND) {
-                addCheese()
-                return@setOnEditorActionListener true
-            }
-            false
-        }
+        }).attachToRecyclerView(recyclerView)
     }
 
     private fun addCheese() {
