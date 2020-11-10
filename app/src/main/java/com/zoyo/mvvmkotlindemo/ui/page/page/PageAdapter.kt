@@ -1,4 +1,4 @@
-package com.zoyo.mvvmkotlindemo.ui.page
+package com.zoyo.mvvmkotlindemo.ui.page.page
 
 import android.view.LayoutInflater
 import android.view.View
@@ -38,6 +38,7 @@ class PageAdapter : PagingDataAdapter<Cheese, PageViewHolder>(diffCallback) {
     override fun onBindViewHolder(holder: PageViewHolder, position: Int) {
         holder.bindContent(getItem(position))
     }
+
 }
 
 class PageViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView),

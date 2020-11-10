@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_navigation_home_to_pageFragment"
             app:destination="@id/pageFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_pageWithNetworkFragment"
+            app:destination="@id/pageWithNetworkFragment" />
     </fragment>
 
     <fragment
@@ -36,6 +39,10 @@
         app:destination="@id/navigation_search" />
     <fragment
         android:id="@+id/pageFragment"
-        android:name="com.zoyo.mvvmkotlindemo.ui.page.PageFragment"
+        android:name="com.zoyo.mvvmkotlindemo.ui.page.page.PageFragment"
         android:label="PageFragment" />
+    <fragment
+        android:id="@+id/pageWithNetworkFragment"
+        android:name="com.zoyo.mvvmkotlindemo.ui.page.page2.PageWithNetworkFragment"
+        android:label="PageWithNetworkFragment" />
 </navigation>

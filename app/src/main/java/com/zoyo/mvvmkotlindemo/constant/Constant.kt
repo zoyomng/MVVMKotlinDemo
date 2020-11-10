@@ -12,12 +12,16 @@ class Constant {
             id = 1,
             subjectTitle = "Paging3分页-动态更新列表",
             subjectOrder = 1,
-            subjectDesc = "Paging3分页-动态更新列表",
+            subjectDesc = "数据源:本地数据库",
             destinationId = R.id.action_navigation_home_to_pageFragment
         )
         val SUBJECT_DATA = arrayListOf<Subject>(
             subject,
-            subject.copy(id = 2),
+            subject.copy(
+                id = 2,
+                subjectDesc = "数据源:网络",
+                destinationId = R.id.action_navigation_home_to_pageWithNetworkFragment
+            ),
             subject.copy(id = 3),
             subject.copy(id = 4),
             subject.copy(id = 5),

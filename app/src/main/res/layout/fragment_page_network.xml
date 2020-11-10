@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.zoyo.mvvmkotlindemo.ui.page.page.PageViewModel" />
+            type="com.zoyo.mvvmkotlindemo.ui.page.page2.PageWithNetworkViewModel" />
 
     </data>
 

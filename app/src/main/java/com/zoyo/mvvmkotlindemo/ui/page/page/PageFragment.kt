@@ -1,6 +1,5 @@
-package com.zoyo.mvvmkotlindemo.ui.page
+package com.zoyo.mvvmkotlindemo.ui.page.page
 
-import android.view.KeyEvent
 import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -10,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.zoyo.mvvmkotlindemo.R
 import com.zoyo.mvvmkotlindemo.core.base.BaseFragment
 import com.zoyo.mvvmkotlindemo.core.base.BaseViewModel
-import com.zoyo.mvvmkotlindemo.databinding.FragmentHomeBinding
 import com.zoyo.mvvmkotlindemo.databinding.FragmentPageBinding
+import com.zoyo.mvvmkotlindemo.ui.page.page2.PageWithNetworkViewHolder
 import kotlinx.android.synthetic.main.fragment_page.*
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
