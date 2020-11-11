@@ -8,5 +8,5 @@ import kotlinx.coroutines.flow.Flow
  * Copyright (c) dtelec, Inc All Rights Reserved.
  */
 interface GitHubRepository {
-    fun postsOfGithub(s: String, pageSize: Int): Flow<PagingData<Repo>>
+    fun postsOfGithub(query: String): Flow<PagingData<Repo>>
 }

@@ -8,6 +8,8 @@ import com.zoyo.mvvmkotlindemo.db.entity.Subject
  */
 class Constant {
     companion object {
+        const val PAGE_SIZE: Int = 20
+
         val subject = Subject(
             id = 1,
             subjectTitle = "Paging3分页-动态更新列表",

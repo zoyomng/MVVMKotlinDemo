@@ -11,7 +11,7 @@ interface ServiceLocator {
     companion object {
         private val LOCK = Any()
         private var instance: ServiceLocator? = null
-        fun instance(context: Context): ServiceLocator {
+        fun instance(): ServiceLocator {
             synchronized(LOCK) {
                 if (instance == null) {
                     instance = DefaultServiceLocator()

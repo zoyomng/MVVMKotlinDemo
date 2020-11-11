@@ -39,16 +39,18 @@ class PageWithNetworkViewModel(val repository: GitHubRepository, val handle: Sav
         handle.getLiveData<String>(KEY_SUBREDDIT)
             .asFlow()
             .flatMapLatest {
-                repository.postsOfGithub(it, 30)
+                repository.postsOfGithub(it)
             }
     ).flattenMerge(2)
 
-    fun shouldShowList(s: String): Boolean = handle.get<String>(KEY_SUBREDDIT) != s
+    //如果跟上次查询的数据相同,则不再加载数据
+    fun shouldShowList(query: String): Boolean = handle.get<String>(KEY_SUBREDDIT) != query
 
-    fun showList(s: String) {
-        if (!shouldShowList(s)) return
+    fun showList(query: String) {
+        if (!shouldShowList(query)) return
         clearListCh.offer(Unit)
-        handle.set(KEY_SUBREDDIT, s)
+        //搜索的关键字被SavedStateHandle保存
+        handle.set(KEY_SUBREDDIT, query)
     }
 
 

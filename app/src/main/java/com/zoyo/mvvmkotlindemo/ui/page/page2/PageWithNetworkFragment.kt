@@ -33,7 +33,7 @@ class PageWithNetworkFragment : BaseFragment<FragmentPageBinding>(R.layout.fragm
                 modelClass: Class<T>,
                 handle: SavedStateHandle
             ): T {
-                val gitHubRepository = ServiceLocator.instance(context!!).getRepository()
+                val gitHubRepository = ServiceLocator.instance().getRepository()
 
                 @Suppress("UNCHECKED_CAST")
                 return PageWithNetworkViewModel(gitHubRepository, handle) as T
@@ -49,14 +49,15 @@ class PageWithNetworkFragment : BaseFragment<FragmentPageBinding>(R.layout.fragm
     @ExperimentalCoroutinesApi
     override fun initData() {
 
-
         val adapter = PageWithNetworkAdapter()
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapter
         swipeRefreshLayout.setOnRefreshListener { adapter.refresh() }
 
+        //需要分开写,不然后面代码不执行
         lifecycleScope.launchWhenCreated {
             adapter.loadStateFlow.collectLatest { loadStates ->
+                //当前PagingDataAdapter是否在加载过程中
                 swipeRefreshLayout.isRefreshing = loadStates.refresh is LoadState.Loading
             }
         }
@@ -86,9 +87,9 @@ class PageWithNetworkFragment : BaseFragment<FragmentPageBinding>(R.layout.fragm
 
     private fun updateList() {
         textInputEditText.text.toString().let {
-//            if (it.isNotBlank() && viewModel.shouldShowList(it)) {
-            viewModel.showList(it)
-//            }
+            if (it.isNotBlank() && viewModel.shouldShowList(it)) {
+                viewModel.showList(it)
+            }
         }
     }
 
