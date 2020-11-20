@@ -18,10 +18,10 @@ import kotlinx.android.synthetic.main.fragment_page.swipeRefreshLayout
 import kotlinx.android.synthetic.main.fragment_page_network.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.filter
-import kotlinx.coroutines.flow.collect
 
 
 class PageWithNetworkFragment : BaseFragment<FragmentPageBinding>(R.layout.fragment_page_network) {
@@ -51,7 +51,10 @@ class PageWithNetworkFragment : BaseFragment<FragmentPageBinding>(R.layout.fragm
 
         val adapter = PageWithNetworkAdapter()
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = adapter
+        recyclerView.adapter = adapter.withLoadStateHeaderAndFooter(
+            header = PageWithNeteorkAdapterHeader(adapter),
+            footer = PageWithNeteorkAdapterHeader(adapter)
+        )
         swipeRefreshLayout.setOnRefreshListener { adapter.refresh() }
 
         //需要分开写,不然后面代码不执行

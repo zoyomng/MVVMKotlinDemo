@@ -18,6 +18,7 @@ class GithubSource(private val gitHubApi: GitHubApi, val query: String) :
 
             //如果params.key没有被定义,则刷新第一页数据
             val pageNo = params.key ?: 1
+            val prevKey = if (pageNo == 1) null else pageNo - 1
 
             val searchRepos = gitHubApi.searchRepos(
                 query = query,
@@ -28,8 +29,8 @@ class GithubSource(private val gitHubApi: GitHubApi, val query: String) :
             LoadResult.Page(
                 //被加载进来的数据
                 data = searchRepos.items,
-                prevKey = null,
-                nextKey = searchRepos.nextPage
+                prevKey = prevKey,
+                nextKey = pageNo + 1
             )
         } catch (e: Exception) {
             //解决出现的异常(如网络请求失败),并返回一个LoadResult.Error

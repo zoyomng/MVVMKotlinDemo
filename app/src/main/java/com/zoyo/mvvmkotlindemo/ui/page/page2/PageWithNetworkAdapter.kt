@@ -9,8 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.zoyo.mvvmkotlindemo.R
 import com.zoyo.mvvmkotlindemo.model.Repo
 import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.item_page.*
-import kotlinx.android.synthetic.main.item_page.tvName
 import kotlinx.android.synthetic.main.item_page_network.*
 
 /**
