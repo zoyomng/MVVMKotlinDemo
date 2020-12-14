@@ -26,12 +26,12 @@
             app:counterMaxLength="10"
             app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Medium"
             app:counterTextAppearance="@style/TextAppearance.AppCompat.Small"
+            app:errorContentDescription="超出字数限制"
             app:errorEnabled="true"
             app:errorTextAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:passwordToggleDrawable="@drawable/ic_launcher_foreground"
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="@color/colorAccent"
             app:passwordToggleTintMode="multiply">

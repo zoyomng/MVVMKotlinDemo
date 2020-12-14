@@ -32,43 +32,36 @@ class MainViewModel : BaseViewModel() {
 
     override fun onAny(owner: LifecycleOwner, event: Lifecycle.Event) {
         super.onAny(owner, event)
-        Toaster.normal("onAny")
         LogUtil.e("onAny")
     }
 
     override fun onCreate() {
         super.onCreate()
-        Toaster.info("onCreate")
         LogUtil.e("onCreate")
     }
 
     override fun onStart() {
         super.onStart()
-        Toaster.success("onStart")
         LogUtil.e("onStart")
     }
 
     override fun onResume() {
         super.onResume()
-        Toaster.success("onResume")
         LogUtil.e("onResume")
     }
 
     override fun onPause() {
         super.onPause()
-        Toaster.warning("onPause")
         LogUtil.e("onPause")
     }
 
     override fun onStop() {
         super.onStop()
-        Toaster.warning("onStop")
         LogUtil.e("onStop")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Toaster.error("onDestroy")
         LogUtil.e("onDestroy")
     }
 

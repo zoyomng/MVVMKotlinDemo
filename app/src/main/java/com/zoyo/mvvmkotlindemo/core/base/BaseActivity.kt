@@ -5,8 +5,7 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.databinding.library.baseAdapters.BR
-
+import com.zoyo.mvvmkotlindemo.BR
 /**
  * Copyright (c) dtelec, Inc All Rights Reserved.
  */

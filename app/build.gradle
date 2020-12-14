@@ -77,7 +77,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha06'
 
     //分页
-    implementation "androidx.paging:paging-runtime:3.0.0-alpha08"
+    implementation "androidx.paging:paging-runtime:3.0.0-alpha09"
 
     //导航
     def nav_version = "2.3.1"

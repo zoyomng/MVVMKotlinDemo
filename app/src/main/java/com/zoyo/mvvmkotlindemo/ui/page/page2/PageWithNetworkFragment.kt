@@ -77,6 +77,10 @@ class PageWithNetworkFragment : BaseFragment<FragmentPageBinding>(R.layout.fragm
                 .filter { it.refresh is LoadState.NotLoading }
                 .collect { recyclerView.scrollToPosition(0) }
         }
+        lifecycleScope.launchWhenStarted {
+            adapter.retry()
+
+        }
 
         textInputEditText.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_GO) {

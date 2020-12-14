@@ -32,7 +32,7 @@ class MainActivity :
     }
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-    public lateinit var navController: NavController
+    lateinit var navController: NavController
 
     override fun initData() {
 
