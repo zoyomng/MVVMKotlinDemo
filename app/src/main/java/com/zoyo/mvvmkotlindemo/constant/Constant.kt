@@ -24,8 +24,16 @@ class Constant {
                 subjectDesc = "数据源:网络",
                 destinationId = R.id.action_navigation_home_to_pageWithNetworkFragment
             ),
-            subject.copy(id = 3),
-            subject.copy(id = 4),
+            subject.copy(
+                id = 3,
+                subjectTitle = "日历控件",
+                subjectDesc = "日历-月",
+                destinationId = R.id.action_navigation_home_to_monthFragment
+            ),
+            subject.copy(id = 4,
+            subjectTitle = "自定义控件",
+            subjectDesc = "paint canvas ...",
+            destinationId = ),
             subject.copy(id = 5),
             subject.copy(id = 6),
             subject.copy(id = 7),

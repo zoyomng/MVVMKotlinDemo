@@ -15,17 +15,17 @@ import com.zoyo.mvvmkotlindemo.BR
  */
 abstract class BaseFragment<T : ViewDataBinding>(
     @LayoutRes val layoutResID: Int,
-    val variableId: Int = BR.viewModel
+    val variableId: Int = BR.viewModel,
 ) : Fragment(), IBaseView {
 
     lateinit var dataBinding: T
-   private lateinit var viewModel: BaseViewModel
+    private lateinit var viewModel: BaseViewModel
 
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
 
         dataBinding = DataBindingUtil.inflate(inflater, layoutResID, container, false)
@@ -39,7 +39,7 @@ abstract class BaseFragment<T : ViewDataBinding>(
         viewModel = getVM()
 
         dataBinding.setVariable(variableId, viewModel)
-        lifecycle.addObserver(viewModel)
+//        lifecycle.addObserver(viewModel)
         initData()
     }
 
@@ -48,7 +48,10 @@ abstract class BaseFragment<T : ViewDataBinding>(
         if (this::dataBinding.isInitialized) {
             dataBinding.unbind()
         }
-        lifecycle.removeObserver(viewModel)
+        //解除ViewModel对生命周期的感应
+//        if (this::viewModel.isInitialized) {
+//            lifecycle.removeObserver(viewModel)
+//        }
     }
 
 }

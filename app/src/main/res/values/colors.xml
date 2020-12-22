@@ -11,4 +11,7 @@
     <color name="successColor">#388E3C</color>
     <color name="warningColor">#FFA900</color>
     <color name="normalColor">#353A3E</color>
+    <color name="weekTitleBg">#C6DEFE</color>
+
+
 </resources>

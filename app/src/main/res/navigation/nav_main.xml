@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_navigation_home_to_pageWithNetworkFragment"
             app:destination="@id/pageWithNetworkFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_monthFragment"
+            app:destination="@id/monthFragment" />
     </fragment>
 
     <fragment
@@ -45,4 +48,8 @@
         android:id="@+id/pageWithNetworkFragment"
         android:name="com.zoyo.mvvmkotlindemo.ui.page.page2.PageWithNetworkFragment"
         android:label="PageWithNetworkFragment" />
+    <fragment
+        android:id="@+id/monthFragment"
+        android:name="com.zoyo.mvvmkotlindemo.ui.month.MonthFragment"
+        android:label="MonthFragment" />
 </navigation>

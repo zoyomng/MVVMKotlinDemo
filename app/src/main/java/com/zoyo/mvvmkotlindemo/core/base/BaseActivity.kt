@@ -28,7 +28,7 @@ abstract class BaseActivity<T : ViewDataBinding>(
         dataBinding.setVariable(variableId, viewModel)
 
         //让viewModel拥有View的生命周期
-        lifecycle.addObserver(viewModel)
+//        lifecycle.addObserver(viewModel)
 
         //初始化数据
         initData()
@@ -40,6 +40,9 @@ abstract class BaseActivity<T : ViewDataBinding>(
             dataBinding.unbind()
         }
         //解除ViewModel对生命周期的感应
-        lifecycle.removeObserver(viewModel)
+//        if(this::viewModel.isInitialized){
+//            lifecycle.removeObserver(viewModel)
+//        }
+
     }
 }
