@@ -20,6 +20,9 @@ class PageWithNeteorkAdapterHeader(private val adapter: PageWithNetworkAdapter) 
         loadState: LoadState
     ): NetworkStateItemViewHolder {
 
-        return NetworkStateItemViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.header_network_state, parent, false)) {adapter.retry()}
+        return NetworkStateItemViewHolder(
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.header_network_state, parent, false)
+        ) { adapter.retry() }
     }
 }

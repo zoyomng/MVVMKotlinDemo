@@ -6,7 +6,6 @@ import com.zoyo.mvvmkotlindemo.core.base.BaseActivity
 import com.zoyo.mvvmkotlindemo.core.base.BaseViewModel
 import com.zoyo.mvvmkotlindemo.databinding.ActivityMainChildBinding
 import com.zoyo.mvvmkotlindemo.ui.main.MainViewModel
-import kotlinx.android.synthetic.main.main_activity.*
 
 /**
  * Copyright (c) dtelec, Inc All Rights Reserved.
@@ -20,7 +19,7 @@ class MainChildActivity : BaseActivity<ActivityMainChildBinding>(R.layout.activi
 
     override fun initData() {
         //操作栏上添加导航
-        setSupportActionBar(toolBar)
+        setSupportActionBar(dataBinding.toolBar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 }

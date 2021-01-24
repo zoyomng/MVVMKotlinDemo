@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "1aceff5334611af0c0c8f1d0926c15ca",
+    "identityHash": "6b4a4c2913ff2ca37a2cd6b734b5db23",
     "entities": [
       {
         "tableName": "Subject",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `subject_title` TEXT NOT NULL, `subject_desc` TEXT NOT NULL, `subject_order` INTEGER, `destination_id` INTEGER)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `subjectTitle` TEXT NOT NULL, `subjectDesc` TEXT NOT NULL, `destinationId` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -16,34 +16,26 @@
           },
           {
             "fieldPath": "subjectTitle",
-            "columnName": "subject_title",
+            "columnName": "subjectTitle",
             "affinity": "TEXT",
             "notNull": true
           },
           {
             "fieldPath": "subjectDesc",
-            "columnName": "subject_desc",
+            "columnName": "subjectDesc",
             "affinity": "TEXT",
             "notNull": true
           },
           {
-            "fieldPath": "subjectOrder",
-            "columnName": "subject_order",
-            "affinity": "INTEGER",
-            "notNull": false
-          },
-          {
             "fieldPath": "destinationId",
-            "columnName": "destination_id",
+            "columnName": "destinationId",
             "affinity": "INTEGER",
-            "notNull": false
+            "notNull": true
           }
         ],
         "primaryKey": {
-          "columnNames": [
-            "id"
-          ],
-          "autoGenerate": true
+          "columnNames": [],
+          "autoGenerate": false
         },
         "indices": [],
         "foreignKeys": []
@@ -78,7 +70,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '1aceff5334611af0c0c8f1d0926c15ca')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '6b4a4c2913ff2ca37a2cd6b734b5db23')"
     ]
   }
 }

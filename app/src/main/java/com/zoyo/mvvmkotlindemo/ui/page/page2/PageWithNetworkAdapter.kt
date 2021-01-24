@@ -3,13 +3,12 @@ package com.zoyo.mvvmkotlindemo.ui.page.page2
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.zoyo.mvvmkotlindemo.R
 import com.zoyo.mvvmkotlindemo.model.Repo
-import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.item_page_network.*
 
 /**
  * Copyright (c) dtelec, Inc All Rights Reserved.
@@ -41,19 +40,24 @@ class PageWithNetworkAdapter : PagingDataAdapter<Repo, PageWithNetworkViewHolder
 
 }
 
-class PageWithNetworkViewHolder(override val containerView: View) :
-    RecyclerView.ViewHolder(containerView),
-    LayoutContainer {
+class PageWithNetworkViewHolder(val containerView: View) :
+    RecyclerView.ViewHolder(containerView) {
     var Repo: Repo? = null
 
     fun bindContent(Repo: Repo?) {
         this.Repo = Repo
         Repo?.let {
-            tvTitle.text = it.name
-            tvContent.text = it.description
-            tvLanguage.text = it.language
-            tvStar.text = it.stars.toString()
-            tvFork.text = it.forks.toString()
+            containerView.findViewById<TextView>(R.id.tvTitle)
+                .apply { text = it.name }
+            containerView.findViewById<TextView>(R.id.tvContent)
+                .apply { text = it.description }
+
+            containerView.findViewById<TextView>(R.id.tvLanguage)
+                .apply { text = it.language }
+            containerView.findViewById<TextView>(R.id.tvStar)
+                .apply { text = it.stars.toString() }
+            containerView.findViewById<TextView>(R.id.tvFork)
+                .apply { text = it.forks.toString() }
         }
     }
 }

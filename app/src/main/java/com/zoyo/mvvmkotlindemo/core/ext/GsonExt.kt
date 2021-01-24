@@ -9,12 +9,19 @@ import java.lang.reflect.Type
  * Copyright (c) dtelec, Inc All Rights Reserved.
  */
 
-inline fun <reified T : Any> Gson.bean2Json(src: T): String = toJson(src)
+inline fun <reified T : Any> Gson.beanToJson(src: T): String = toJson(src)
 
-inline fun <reified T : Any> Gson.json2Bean(json: String): T =
+/**
+ * 简单的json转bean
+ * 使用方式: val user:User = Gson.json2BeanSimple(json)
+ * 因为运行期java/kotlin会将类型擦除
+ */
+inline fun <reified T : Any> Gson.jsonToBeanSimple(json: String): T = fromJson(json, T::class.java)
+
+inline fun <reified T : Any> Gson.jsonToBean(json: String): T =
     fromJson(json, object : TypeToken<T>() {}.type)
 
-inline fun <reified T : Any> Gson.json2List(json: String): List<T> {
+inline fun <reified T : Any> Gson.jsonToList(json: String): List<T> {
     return Gson().fromJson(json, object : ParameterizedType {
         override fun getActualTypeArguments(): Array<Type> {
             return arrayOf(object : TypeToken<T>() {}.type)

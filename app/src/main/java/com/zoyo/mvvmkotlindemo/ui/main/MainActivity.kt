@@ -20,7 +20,6 @@ import com.zoyo.mvvmkotlindemo.core.base.BaseActivity
 import com.zoyo.mvvmkotlindemo.core.base.BaseViewModel
 import com.zoyo.mvvmkotlindemo.core.utils.LogUtil
 import com.zoyo.mvvmkotlindemo.databinding.MainActivityBinding
-import kotlinx.android.synthetic.main.main_activity.*
 
 
 class MainActivity :
@@ -44,27 +43,27 @@ class MainActivity :
         )
 
         //操作栏上添加导航
-        setSupportActionBar(toolBar)
+        setSupportActionBar(dataBinding.toolBar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id == R.id.navigation_search) {
-                bottomNavigationView.visibility = View.GONE
+                dataBinding.bottomNavigationView.visibility = View.GONE
             } else {
-                toolBar.visibility = View.VISIBLE
-                bottomNavigationView.visibility = View.VISIBLE
+                dataBinding.toolBar.visibility = View.VISIBLE
+                dataBinding.bottomNavigationView.visibility = View.VISIBLE
             }
         }
-        setupWithNavController(bottomNavigationView, navController)
+        setupWithNavController(dataBinding.bottomNavigationView, navController)
         setupWithNavController(
-            collapsingToolbarLayout,
-            toolBar,
+            dataBinding.collapsingToolbarLayout,
+            dataBinding.toolBar,
             navController,
             appBarConfiguration
         )
-        setupWithNavController(toolBar, navController, drawerLayout)
+        setupWithNavController(dataBinding.toolBar, navController, dataBinding.drawerLayout)
 
     }
 

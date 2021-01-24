@@ -3,13 +3,12 @@ package com.zoyo.mvvmkotlindemo.ui.page.page
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.zoyo.mvvmkotlindemo.R
 import com.zoyo.mvvmkotlindemo.db.entity.Cheese
-import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.item_page.*
 
 /**
  * Copyright (c) dtelec, Inc All Rights Reserved.
@@ -41,14 +40,15 @@ class PageAdapter : PagingDataAdapter<Cheese, PageViewHolder>(diffCallback) {
 
 }
 
-class PageViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView),
-    LayoutContainer {
+class PageViewHolder(val containerView: View) : RecyclerView.ViewHolder(containerView) {
     var cheese: Cheese? = null
 
     fun bindContent(cheese: Cheese?) {
         this.cheese = cheese
         cheese?.let {
-            tvName.text = it.name
+            containerView.findViewById<TextView>(R.id.tvName).apply {
+                text = it.name
+            }
         }
     }
 }

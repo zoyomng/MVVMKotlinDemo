@@ -12,10 +12,8 @@ import com.zoyo.mvvmkotlindemo.R
 import com.zoyo.mvvmkotlindemo.core.base.BaseFragment
 import com.zoyo.mvvmkotlindemo.core.base.BaseViewModel
 import com.zoyo.mvvmkotlindemo.databinding.FragmentPageBinding
+import com.zoyo.mvvmkotlindemo.databinding.FragmentPageNetworkBinding
 import com.zoyo.mvvmkotlindemo.ui.page.ServiceLocator
-import kotlinx.android.synthetic.main.fragment_page.recyclerView
-import kotlinx.android.synthetic.main.fragment_page.swipeRefreshLayout
-import kotlinx.android.synthetic.main.fragment_page_network.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.collect
@@ -24,7 +22,7 @@ import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.filter
 
 
-class PageWithNetworkFragment : BaseFragment<FragmentPageBinding>(R.layout.fragment_page_network) {
+class PageWithNetworkFragment : BaseFragment<FragmentPageNetworkBinding>(R.layout.fragment_page_network) {
 
     private val viewModel by viewModels<PageWithNetworkViewModel> {
         object : AbstractSavedStateViewModelFactory(this, null) {
@@ -50,18 +48,19 @@ class PageWithNetworkFragment : BaseFragment<FragmentPageBinding>(R.layout.fragm
     override fun initData() {
 
         val adapter = PageWithNetworkAdapter()
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = adapter.withLoadStateHeaderAndFooter(
+        dataBinding.recyclerView.layoutManager = LinearLayoutManager(context)
+        dataBinding.recyclerView.adapter = adapter.withLoadStateHeaderAndFooter(
             header = PageWithNeteorkAdapterHeader(adapter),
             footer = PageWithNeteorkAdapterHeader(adapter)
         )
-        swipeRefreshLayout.setOnRefreshListener { adapter.refresh() }
+        dataBinding.swipeRefreshLayout.setOnRefreshListener { adapter.refresh() }
 
         //需要分开写,不然后面代码不执行
         lifecycleScope.launchWhenCreated {
             adapter.loadStateFlow.collectLatest { loadStates ->
                 //当前PagingDataAdapter是否在加载过程中
-                swipeRefreshLayout.isRefreshing = loadStates.refresh is LoadState.Loading
+                dataBinding.swipeRefreshLayout.isRefreshing =
+                    loadStates.refresh is LoadState.Loading
             }
         }
         lifecycleScope.launchWhenCreated {
@@ -75,14 +74,14 @@ class PageWithNetworkFragment : BaseFragment<FragmentPageBinding>(R.layout.fragm
                 .distinctUntilChangedBy { it.refresh }
                 //刷新结束
                 .filter { it.refresh is LoadState.NotLoading }
-                .collect { recyclerView.scrollToPosition(0) }
+                .collect { dataBinding.recyclerView.scrollToPosition(0) }
         }
         lifecycleScope.launchWhenStarted {
             adapter.retry()
 
         }
 
-        textInputEditText.setOnEditorActionListener { _, actionId, _ ->
+        dataBinding.textInputEditText.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_GO) {
                 updateList()
                 true
@@ -93,7 +92,7 @@ class PageWithNetworkFragment : BaseFragment<FragmentPageBinding>(R.layout.fragm
     }
 
     private fun updateList() {
-        textInputEditText.text.toString().let {
+        dataBinding.textInputEditText.text.toString().let {
             if (it.isNotBlank() && viewModel.shouldShowList(it)) {
                 viewModel.showList(it)
             }

@@ -8,7 +8,6 @@ import com.zoyo.mvvmkotlindemo.core.base.BaseFragment
 import com.zoyo.mvvmkotlindemo.core.base.BaseViewModel
 import com.zoyo.mvvmkotlindemo.databinding.FragmentDashboardBinding
 import com.zoyo.mvvmkotlindemo.ui.mainchild.MainChildActivity
-import kotlinx.android.synthetic.main.fragment_dashboard.*
 
 class DashboardFragment : BaseFragment<FragmentDashboardBinding>(R.layout.fragment_dashboard) {
     private val dashboardViewModel: DashboardViewModel by viewModels()
@@ -18,7 +17,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>(R.layout.fragme
     }
 
     override fun initData() {
-        text_dashboard.setOnClickListener(View.OnClickListener {
+        dataBinding.textDashboard.setOnClickListener(View.OnClickListener {
             startActivity(
                 Intent(
                     context,

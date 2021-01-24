@@ -7,7 +7,6 @@ import com.zoyo.mvvmkotlindemo.R
 import com.zoyo.mvvmkotlindemo.core.base.BaseFragment
 import com.zoyo.mvvmkotlindemo.core.base.BaseViewModel
 import com.zoyo.mvvmkotlindemo.databinding.FragmentMonthBinding
-import kotlinx.android.synthetic.main.fragment_month.*
 import java.util.*
 
 /**
@@ -25,7 +24,7 @@ class MonthFragment : BaseFragment<FragmentMonthBinding>(R.layout.fragment_month
     override fun initData() {
         val calendar = Calendar.getInstance()
 
-        monthView.setMonthParams(calendar[Calendar.MONTH], calendar[Calendar.YEAR])
+        dataBinding.monthView.setMonthParams(calendar[Calendar.MONTH], calendar[Calendar.YEAR])
     }
 
 

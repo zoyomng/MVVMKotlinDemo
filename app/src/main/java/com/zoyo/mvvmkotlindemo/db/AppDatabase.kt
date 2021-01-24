@@ -9,16 +9,13 @@ import com.zoyo.mvvmkotlindemo.constant.Constant
 import com.zoyo.mvvmkotlindemo.db.entity.Cheese
 import com.zoyo.mvvmkotlindemo.db.entity.Subject
 import com.zoyo.mvvmkotlindemo.db.dao.CheeseDao
-import com.zoyo.mvvmkotlindemo.db.dao.SubjectDao
 
 /**
  * Copyright (c) dtelec, Inc All Rights Reserved.
  */
-@Database(entities = arrayOf(Subject::class, Cheese::class), version = 1)
+@Database(entities = arrayOf(Cheese::class), version = 2)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun subjectDao(): SubjectDao
     abstract fun cheeseDao(): CheeseDao
-
 
     companion object {
         private var instance: AppDatabase? = null
@@ -44,8 +41,6 @@ abstract class AppDatabase : RoomDatabase() {
             ioThread {
                 get(context).cheeseDao()
                     .insert(Constant.CHEESE_DATA.map { Cheese(id = 0, name = it) })
-
-                get(context).subjectDao().insert(Constant.SUBJECT_DATA)
             }
         }
     }

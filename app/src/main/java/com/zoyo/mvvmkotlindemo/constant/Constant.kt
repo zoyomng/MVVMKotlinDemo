@@ -10,38 +10,36 @@ class Constant {
     companion object {
         const val PAGE_SIZE: Int = 20
 
-        val subject = Subject(
-            id = 1,
-            subjectTitle = "Paging3分页-动态更新列表",
-            subjectOrder = 1,
-            subjectDesc = "数据源:本地数据库",
-            destinationId = R.id.action_navigation_home_to_pageFragment
-        )
         val SUBJECT_DATA = arrayListOf<Subject>(
-            subject,
-            subject.copy(
-                id = 2,
-                subjectDesc = "数据源:网络",
-                destinationId = R.id.action_navigation_home_to_pageWithNetworkFragment
+            Subject(
+                id = 1,
+                subjectTitle = "Paging3分页-动态更新列表",
+                subjectDesc = "数据源:本地数据库",
+                destinationId = R.id.action_navigation_home_to_pageFragment
             ),
-            subject.copy(
+            Subject(
+                2,
+                "Paging3分页-动态更新列表",
+                "数据源:网络",
+                R.id.action_navigation_home_to_pageWithNetworkFragment
+            ),
+            Subject(
                 id = 3,
                 subjectTitle = "日历控件",
                 subjectDesc = "日历-月",
                 destinationId = R.id.action_navigation_home_to_monthFragment
             ),
-            subject.copy(id = 4,
-            subjectTitle = "自定义控件",
-            subjectDesc = "paint canvas ...",
-            destinationId = ),
-            subject.copy(id = 5),
-            subject.copy(id = 6),
-            subject.copy(id = 7),
-            subject.copy(id = 8),
-            subject.copy(id = 9),
-            subject.copy(id = 10),
-            subject.copy(id = 11),
-            subject.copy(id = 12)
+            Subject(
+                id = 4,
+                subjectTitle = "自定义控件",
+                subjectDesc = "paint canvas ..."
+            ),
+            Subject(
+                id = 5,
+                subjectTitle = "kotlin",
+                subjectDesc = "kotlin认知",
+                destinationId = R.id.action_navigation_home_to_kotlinBasicFragment
+            )
         )
         val CHEESE_DATA = arrayListOf(
             "Abbaye de Belloc", "Abbaye du Mont des Cats", "Abertam", "Abondance", "Ackawi",

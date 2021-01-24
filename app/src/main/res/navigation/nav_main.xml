@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_navigation_home_to_monthFragment"
             app:destination="@id/monthFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_kotlinBasicFragment"
+            app:destination="@id/kotlinBasicFragment" />
     </fragment>
 
     <fragment
@@ -52,4 +55,8 @@
         android:id="@+id/monthFragment"
         android:name="com.zoyo.mvvmkotlindemo.ui.month.MonthFragment"
         android:label="MonthFragment" />
+    <fragment
+        android:id="@+id/kotlinBasicFragment"
+        android:name="com.zoyo.mvvmkotlindemo.ui.kotlin.KotlinBasicFragment"
+        android:label="KotlinBasicFragment" />
 </navigation>

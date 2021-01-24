@@ -10,8 +10,6 @@ import com.zoyo.mvvmkotlindemo.R
 import com.zoyo.mvvmkotlindemo.core.base.BaseFragment
 import com.zoyo.mvvmkotlindemo.core.base.BaseViewModel
 import com.zoyo.mvvmkotlindemo.databinding.FragmentPageBinding
-import com.zoyo.mvvmkotlindemo.ui.page.page2.PageWithNetworkViewHolder
-import kotlinx.android.synthetic.main.fragment_page.*
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -25,8 +23,8 @@ class PageFragment : BaseFragment<FragmentPageBinding>(R.layout.fragment_page) {
     override fun initData() {
 
         val adapter = PageAdapter()
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = adapter
+        dataBinding.recyclerView.layoutManager = LinearLayoutManager(context)
+        dataBinding.recyclerView.adapter = adapter
 
 
         //将适配器订阅到ViewModel，当列表发生变化时以便刷新适配器中的项
@@ -43,7 +41,7 @@ class PageFragment : BaseFragment<FragmentPageBinding>(R.layout.fragment_page) {
      * 输入法键盘上的各种键,false:隐藏键盘,true:保留键盘
      */
     private fun initEditorListener() {
-        textInputEditText.setOnEditorActionListener { _, actionId, _ ->
+        dataBinding.textInputEditText.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_GO) {
                 addCheese()
                 return@setOnEditorActionListener true
@@ -76,11 +74,11 @@ class PageFragment : BaseFragment<FragmentPageBinding>(R.layout.fragment_page) {
                     pageViewModel.remove(it)
                 }
             }
-        }).attachToRecyclerView(recyclerView)
+        }).attachToRecyclerView(dataBinding.recyclerView)
     }
 
     private fun addCheese() {
-        val newCheese = textInputEditText.text?.trim()
+        val newCheese = dataBinding.textInputEditText.text?.trim()
         if (!newCheese.isNullOrEmpty()) {
             pageViewModel.insert(newCheese)
         }
