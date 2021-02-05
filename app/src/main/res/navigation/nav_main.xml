@@ -22,6 +22,12 @@
         <action
             android:id="@+id/action_navigation_home_to_kotlinBasicFragment"
             app:destination="@id/kotlinBasicFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_canvasFragment"
+            app:destination="@id/canvasFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_extensionFragment"
+            app:destination="@id/extensionFragment" />
     </fragment>
 
     <fragment
@@ -59,4 +65,12 @@
         android:id="@+id/kotlinBasicFragment"
         android:name="com.zoyo.mvvmkotlindemo.ui.kotlin.KotlinBasicFragment"
         android:label="KotlinBasicFragment" />
+    <fragment
+        android:id="@+id/canvasFragment"
+        android:name="com.zoyo.mvvmkotlindemo.ui.canvas.CanvasFragment"
+        android:label="CanvasFragment" />
+    <fragment
+        android:id="@+id/extensionFragment"
+        android:name="com.zoyo.mvvmkotlindemo.ui.extension.ExtensionFragment"
+        android:label="ExtensionFragment" />
 </navigation>

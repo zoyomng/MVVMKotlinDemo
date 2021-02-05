@@ -17,7 +17,7 @@ class MainChildActivity : BaseActivity<ActivityMainChildBinding>(R.layout.activi
         return mainViewModel
     }
 
-    override fun initData() {
+    override fun initialize() {
         //操作栏上添加导航
         setSupportActionBar(dataBinding.toolBar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

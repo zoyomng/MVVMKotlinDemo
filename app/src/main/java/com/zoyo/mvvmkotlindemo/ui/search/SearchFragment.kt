@@ -17,6 +17,6 @@ class SearchFragment : BaseFragment<MainActivityBinding>(R.layout.fragment_searc
         return mainViewModel
     }
 
-    override fun initData() {
+    override fun initialize() {
     }
 }

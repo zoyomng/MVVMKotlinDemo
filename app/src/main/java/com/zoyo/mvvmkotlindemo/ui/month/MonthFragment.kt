@@ -21,7 +21,7 @@ class MonthFragment : BaseFragment<FragmentMonthBinding>(R.layout.fragment_month
     }
 
     @RequiresApi(Build.VERSION_CODES.N)
-    override fun initData() {
+    override fun initialize() {
         val calendar = Calendar.getInstance()
 
         dataBinding.monthView.setMonthParams(calendar[Calendar.MONTH], calendar[Calendar.YEAR])

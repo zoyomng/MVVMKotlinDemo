@@ -39,7 +39,20 @@ class Constant {
                 subjectTitle = "kotlin",
                 subjectDesc = "kotlin认知",
                 destinationId = R.id.action_navigation_home_to_kotlinBasicFragment
+            ),
+            Subject(
+                id = 6,
+                subjectTitle = "Canvas",
+                subjectDesc = "Canvas认知",
+                destinationId = R.id.action_navigation_home_to_canvasFragment
+            ),
+            Subject(
+                id = 6,
+                subjectTitle = "kotlin-扩展",
+                subjectDesc = "kotlin-扩展认知",
+                destinationId = R.id.action_navigation_home_to_extensionFragment
             )
+
         )
         val CHEESE_DATA = arrayListOf(
             "Abbaye de Belloc", "Abbaye du Mont des Cats", "Abertam", "Abondance", "Ackawi",

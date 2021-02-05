@@ -15,7 +15,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         return homeViewModel
     }
 
-    override fun initData() {
+    override fun initialize() {
         val homeAdapter =
             HomeAdapter(R.layout.item_home, Constant.SUBJECT_DATA) { subject ->
                 subject.destinationId.let {

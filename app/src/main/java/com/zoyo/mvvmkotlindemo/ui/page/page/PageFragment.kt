@@ -20,7 +20,7 @@ class PageFragment : BaseFragment<FragmentPageBinding>(R.layout.fragment_page) {
         return pageViewModel
     }
 
-    override fun initData() {
+    override fun initialize() {
 
         val adapter = PageAdapter()
         dataBinding.recyclerView.layoutManager = LinearLayoutManager(context)

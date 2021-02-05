@@ -16,7 +16,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>(R.layout.fragme
         return dashboardViewModel
     }
 
-    override fun initData() {
+    override fun initialize() {
         dataBinding.textDashboard.setOnClickListener(View.OnClickListener {
             startActivity(
                 Intent(

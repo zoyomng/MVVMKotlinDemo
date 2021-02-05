@@ -4,6 +4,7 @@ import android.content.Intent
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.SearchView.OnQueryTextListener
@@ -18,7 +19,7 @@ import com.zoyo.mvvmkotlindemo.BR
 import com.zoyo.mvvmkotlindemo.R
 import com.zoyo.mvvmkotlindemo.core.base.BaseActivity
 import com.zoyo.mvvmkotlindemo.core.base.BaseViewModel
-import com.zoyo.mvvmkotlindemo.core.utils.LogUtil
+import com.zoyo.mvvmkotlindemo.core.utils.L
 import com.zoyo.mvvmkotlindemo.databinding.MainActivityBinding
 
 
@@ -33,8 +34,7 @@ class MainActivity :
     private lateinit var appBarConfiguration: AppBarConfiguration
     lateinit var navController: NavController
 
-    override fun initData() {
-
+    override fun initialize() {
         navController = findNavController(R.id.nav_host_fragment)
         appBarConfiguration = AppBarConfiguration(
             setOf(
@@ -83,18 +83,18 @@ class MainActivity :
                 override fun onClick(v: View?) {
                     //点击"搜索"按钮,SearchView控件开始展开
                     //可以切换搜索界面(fragment)
-                    LogUtil.e("SearchView-OnSearchClick")
+                    L.e("SearchView-OnSearchClick")
                     navController.navigate(R.id.action_global_navigation_search)
                 }
             })
             setOnQueryTextListener(object : OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
-                    LogUtil.e("SearchView-onQueryTextSubmit")
+                    L.e("SearchView-onQueryTextSubmit")
                     return false
                 }
 
                 override fun onQueryTextChange(newText: String?): Boolean {
-                    LogUtil.e("SearchView-onQueryTextChange  $query")
+                    L.e("SearchView-onQueryTextChange  $query")
                     return false
                 }
             })
@@ -102,7 +102,7 @@ class MainActivity :
             setOnCloseListener(object : SearchView.OnCloseListener {
                 override fun onClose(): Boolean {
                     //关闭搜索界面,切换列表页面(fragment)
-                    LogUtil.e("SearchView-onClose")
+                    L.e("SearchView-onClose")
                     navController.navigateUp()
                     return false
                 }

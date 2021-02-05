@@ -31,8 +31,10 @@ abstract class BaseActivity<T : ViewDataBinding>(
 //        lifecycle.addObserver(viewModel)
 
         //初始化数据
-        initData()
+        initialize()
     }
+
+    abstract fun getVM(): BaseViewModel
 
     override fun onDestroy() {
         super.onDestroy()

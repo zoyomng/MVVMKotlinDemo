@@ -14,8 +14,8 @@ package com.zoyo.mvvmkotlindemo.model
  *
  */
 data class ResponseWrapper<Content>(
-    open val code: Int,
-    open val message: String,
-    open val content: Content
+    val code: Int,
+    val message: String,
+    val content: Content
 )
 

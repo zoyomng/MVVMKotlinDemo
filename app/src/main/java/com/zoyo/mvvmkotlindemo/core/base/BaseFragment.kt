@@ -40,8 +40,10 @@ abstract class BaseFragment<T : ViewDataBinding>(
 
         dataBinding.setVariable(variableId, viewModel)
 //        lifecycle.addObserver(viewModel)
-        initData()
+        initialize()
     }
+
+    abstract fun getVM(): BaseViewModel
 
     override fun onDestroy() {
         super.onDestroy()

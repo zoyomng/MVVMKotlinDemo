@@ -5,7 +5,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.viewModelScope
 import com.zoyo.mvvmkotlindemo.core.base.BaseViewModel
-import com.zoyo.mvvmkotlindemo.core.utils.LogUtil
+import com.zoyo.mvvmkotlindemo.core.utils.L
 import com.zoyo.mvvmkotlindemo.core.widget.toast.Toaster
 import com.zoyo.mvvmkotlindemo.model.MainItemData
 import kotlinx.coroutines.launch
@@ -32,37 +32,37 @@ class MainViewModel : BaseViewModel() {
 
     override fun onAny(owner: LifecycleOwner, event: Lifecycle.Event) {
         super.onAny(owner, event)
-        LogUtil.e("onAny")
+        L.e("onAny")
     }
 
     override fun onCreate() {
         super.onCreate()
-        LogUtil.e("onCreate")
+        L.e("onCreate")
     }
 
     override fun onStart() {
         super.onStart()
-        LogUtil.e("onStart")
+        L.e("onStart")
     }
 
     override fun onResume() {
         super.onResume()
-        LogUtil.e("onResume")
+        L.e("onResume")
     }
 
     override fun onPause() {
         super.onPause()
-        LogUtil.e("onPause")
+        L.e("onPause")
     }
 
     override fun onStop() {
         super.onStop()
-        LogUtil.e("onStop")
+        L.e("onStop")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        LogUtil.e("onDestroy")
+        L.e("onDestroy")
     }
 
 //    2020-09-30 16:50:01.754 25621-25621/com.zoyo.mvvmkotlindemo E/com.zoyo.mvvmkotlindemo: onCreate

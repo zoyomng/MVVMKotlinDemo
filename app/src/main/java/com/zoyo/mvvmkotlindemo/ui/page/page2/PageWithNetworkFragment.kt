@@ -45,7 +45,7 @@ class PageWithNetworkFragment : BaseFragment<FragmentPageNetworkBinding>(R.layou
 
     @FlowPreview
     @ExperimentalCoroutinesApi
-    override fun initData() {
+    override fun initialize() {
 
         val adapter = PageWithNetworkAdapter()
         dataBinding.recyclerView.layoutManager = LinearLayoutManager(context)
