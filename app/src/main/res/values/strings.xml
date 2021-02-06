@@ -120,4 +120,5 @@
     <string name="input">请输入相关字段</string>
     <string name="retry">重试</string>
     <string name="click_anti_shake">点击事件-防抖机制</string>
+    <string name="start">start</string>
 </resources>

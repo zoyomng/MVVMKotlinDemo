@@ -1,4 +1,4 @@
-package com.zoyo.mvvmkotlindemo.ui.canvas
+package com.zoyo.mvvmkotlindemo.ui.view
 
 import android.content.Context
 import android.graphics.*

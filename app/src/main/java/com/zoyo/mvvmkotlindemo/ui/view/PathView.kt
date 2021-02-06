@@ -1,4 +1,4 @@
-package com.zoyo.mvvmkotlindemo.ui.canvas
+package com.zoyo.mvvmkotlindemo.ui.view
 
 import android.content.Context
 import android.graphics.*
@@ -88,15 +88,28 @@ class PathView @JvmOverloads constructor(
         fillType = Path.FillType.EVEN_ODD
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-
-        val widthMeasureMode = MeasureSpec.getMode(widthMeasureSpec)
-        val widthMeasureSize = MeasureSpec.getSize(widthMeasureSpec)
-        val heightMeasureMode = MeasureSpec.getMode(heightMeasureSpec)
-        val heightMeasureSize = MeasureSpec.getSize(heightMeasureSpec)
-
-        setMeasuredDimension(widthMeasureSize, heightMeasureSize)
-    }
+//    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+//        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+//        val mWidth: Int
+//        val mHeight: Int
+//
+//        val widthMeasureMode = MeasureSpec.getMode(widthMeasureSpec)
+//        val widthMeasureSize = MeasureSpec.getSize(widthMeasureSpec)
+//        val heightMeasureMode = MeasureSpec.getMode(heightMeasureSpec)
+//        val heightMeasureSize = MeasureSpec.getSize(heightMeasureSpec)
+//        val min = Math.min(widthMeasureSize, heightMeasureSize)
+//        if (widthMeasureMode == MeasureSpec.EXACTLY)
+//            mWidth = widthMeasureSize
+//        else
+//            mWidth = min
+//
+//        if (heightMeasureMode == MeasureSpec.EXACTLY)
+//            mHeight = heightMeasureSize
+//        else
+//            mHeight = min
+//
+//        setMeasuredDimension(mWidth, mHeight)
+//    }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)

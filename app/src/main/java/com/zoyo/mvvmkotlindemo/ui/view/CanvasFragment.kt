@@ -1,4 +1,4 @@
-package com.zoyo.mvvmkotlindemo.ui.canvas
+package com.zoyo.mvvmkotlindemo.ui.view
 
 import android.widget.Button
 import androidx.lifecycle.lifecycleScope

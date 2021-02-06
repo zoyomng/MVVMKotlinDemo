@@ -1,4 +1,4 @@
-package com.zoyo.mvvmkotlindemo.ui.canvas
+package com.zoyo.mvvmkotlindemo.ui.view
 
 import android.animation.Animator
 import android.animation.Animator.*
@@ -11,7 +11,6 @@ import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.LinearInterpolator
-import com.zoyo.mvvmkotlindemo.core.utils.L
 import kotlin.math.cos
 import kotlin.math.sin
 

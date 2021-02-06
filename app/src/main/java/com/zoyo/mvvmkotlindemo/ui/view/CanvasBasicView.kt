@@ -1,14 +1,12 @@
-package com.zoyo.mvvmkotlindemo.ui.canvas
+package com.zoyo.mvvmkotlindemo.ui.view
 
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
 import com.zoyo.mvvmkotlindemo.R
-import com.zoyo.mvvmkotlindemo.core.extensions.dp
 import com.zoyo.mvvmkotlindemo.core.extensions.px
 import com.zoyo.mvvmkotlindemo.core.utils.L
-import kotlin.contracts.ReturnsNotNull
 
 /**
  * zoyomng 2021/1/28

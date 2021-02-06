@@ -1,4 +1,4 @@
-package com.zoyo.mvvmkotlindemo.ui.canvas
+package com.zoyo.mvvmkotlindemo.ui.view
 
 import android.content.Context
 import android.graphics.Canvas
@@ -64,13 +64,25 @@ class RadarView @JvmOverloads constructor(
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        val mWidth: Int
+        val mHeight: Int
 
         val widthMeasureMode = MeasureSpec.getMode(widthMeasureSpec)
         val widthMeasureSize = MeasureSpec.getSize(widthMeasureSpec)
         val heightMeasureMode = MeasureSpec.getMode(heightMeasureSpec)
         val heightMeasureSize = MeasureSpec.getSize(heightMeasureSpec)
+        val min = Math.min(widthMeasureSize, heightMeasureSize)
+        if (widthMeasureMode == MeasureSpec.EXACTLY)
+            mWidth = widthMeasureSize
+        else
+            mWidth = min
 
-        setMeasuredDimension(widthMeasureSize, heightMeasureSize)
+        if (heightMeasureMode == MeasureSpec.EXACTLY)
+            mHeight = heightMeasureSize
+        else
+            mHeight = min
+
+        setMeasuredDimension(mWidth, mHeight)
     }
 
 
