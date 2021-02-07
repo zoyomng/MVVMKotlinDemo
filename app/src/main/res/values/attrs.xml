@@ -13,4 +13,12 @@
         <attr name="type" />
     </declare-styleable>
 
+    <declare-styleable name="SpiderView">
+        <attr name="pointRadius" format="dimension" />
+        <attr name="pointNum" format="integer" />
+        <attr name="lineWidth" format="dimension" />
+        <attr name="lineAlpha" format="integer" />
+
+    </declare-styleable>
+
 </resources>

@@ -9,7 +9,7 @@
         android:id="@+id/navigation_home"
         android:name="com.zoyo.mvvmkotlindemo.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_navigation_home_to_pageFragment"
             app:destination="@id/pageFragment" />
@@ -67,7 +67,7 @@
         android:label="KotlinBasicFragment" />
     <fragment
         android:id="@+id/canvasFragment"
-        android:name="com.zoyo.mvvmkotlindemo.ui.canvas.CanvasFragment"
+        android:name="com.zoyo.mvvmkotlindemo.ui.view.CanvasFragment"
         android:label="CanvasFragment" />
     <fragment
         android:id="@+id/extensionFragment"
