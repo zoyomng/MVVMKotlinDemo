@@ -30,33 +30,33 @@ class SpiderView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
 
-    var mWidth: Int = 0
-    var mHeight: Int = 0
-    var pointRadius: Int = DEFAULT_POINT_RADIUS
-    var pointNum: Int = DEFAULT_POINT_NUMBER
-    val pointAcceleration = DEFAULT_POINT_ACCELERATION
-    val maxDistance = DEFAULT_MAX_DISTANCE
-    var lineWidth: Float = DEFAULT_LINE_WIDTH
-    var lineAlpha: Int = DEFAULT_LINE_ALPHA
-    var touchPointRadius: Float = DEFAULT_TOUCH_POINT_RADIUS
-    var gravitationStrength = DEFAULT_GRAVITATION_STRENGTH
+    private var mWidth: Int = 0
+    private var mHeight: Int = 0
+    private var pointRadius: Int = DEFAULT_POINT_RADIUS
+    private var pointNum: Int = DEFAULT_POINT_NUMBER
+    private val pointAcceleration = DEFAULT_POINT_ACCELERATION
+    private val maxDistance = DEFAULT_MAX_DISTANCE
+    private var lineWidth: Float = DEFAULT_LINE_WIDTH
+    private var lineAlpha: Int = DEFAULT_LINE_ALPHA
+    private var touchPointRadius: Float = DEFAULT_TOUCH_POINT_RADIUS
+    private var gravitationStrength = DEFAULT_GRAVITATION_STRENGTH
 
-    val mSpiderPointList = ArrayList<SpiderPointData>()
+    private val mSpiderPointList = ArrayList<SpiderPointData>()
 
-    val pointPaint = Paint().apply {
+    private val pointPaint = Paint().apply {
         strokeWidth = pointRadius.toFloat()
         strokeCap = Paint.Cap.ROUND  //笔刷形状
         color = Color.parseColor("#EBFF4081")
 
     }
-    val linePaint = Paint().apply {
+    private val linePaint = Paint().apply {
         strokeWidth = lineWidth
         strokeCap = Paint.Cap.ROUND
         color = Color.parseColor("#EBFF94B9")
     }
 
     //手势触摸操作,用于处理滑动与拖拽
-    val mGestureDetector: GestureDetector =
+    private val mGestureDetector: GestureDetector =
         GestureDetector(context, object : GestureDetector.SimpleOnGestureListener() {
             override fun onScroll(
                 e1: MotionEvent,
@@ -100,9 +100,9 @@ class SpiderView @JvmOverloads constructor(
         })
 
     //触摸点坐标
-    var mTouchX = -1F
-    var mTouchY = -1F
-    val touchPaint = Paint().apply {
+    private var mTouchX = -1F
+    private var mTouchY = -1F
+    private val touchPaint = Paint().apply {
         strokeWidth = touchPointRadius
         strokeCap = Paint.Cap.ROUND
         color = Color.parseColor("#D8FF7875")

@@ -58,7 +58,7 @@ class RegionView @JvmOverloads constructor(
 
     val greenRegion = Region(greenRect)
     val yellowRegion = Region(yellowRect).apply {
-        op(greenRegion, Region.Op.XOR)
+        op(greenRegion, Region.Op.INTERSECT)
     }
 
     val opIterator = RegionIterator(yellowRegion)
