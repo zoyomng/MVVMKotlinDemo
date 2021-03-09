@@ -4,9 +4,8 @@ import android.graphics.Color
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.viewModelScope
-import com.zoyo.mvvmkotlindemo.core.base.BaseViewModel
-import com.zoyo.mvvmkotlindemo.core.utils.L
-import com.zoyo.mvvmkotlindemo.core.widget.toast.Toaster
+import com.zoyo.core.base.BaseViewModel
+import com.zoyo.core.utils.L
 import com.zoyo.mvvmkotlindemo.model.MainItemData
 import kotlinx.coroutines.launch
 import kotlin.random.Random

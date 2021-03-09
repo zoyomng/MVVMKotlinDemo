@@ -1,19 +1,12 @@
 package com.zoyo.mvvmkotlindemo
 
-import android.app.Application
+import com.zoyo.core.BaseApplication
 
 /**
  * Copyright (c) dtelec, Inc All Rights Reserved.
  */
-class App : Application() {
-    companion object {
-        lateinit var appContext: Application
-    }
-
+class App : BaseApplication() {
     override fun onCreate() {
         super.onCreate()
-        appContext = this
-
     }
-
 }

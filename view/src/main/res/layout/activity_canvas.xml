@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--        <com.zoyo.mvvmkotlindemo.ui.view.pie.PieChartView-->
+        <!--            android:id="@+id/pieView"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content" />-->
+
+        <com.zoyo.view.pie.RingChartView
+            android:id="@+id/ringView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <!--        <com.zoyo.mvvmkotlindemo.ui.view.spider.SpiderView-->
+        <!--            android:id="@+id/spiderView"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            app:pointNum="50"-->
+        <!--            app:pointRadius="3dp" />-->
+
+        <!--                <Button-->
+        <!--                    android:id="@+id/btStart"-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="40dp"-->
+        <!--                    android:text="@string/start" />-->
+
+        <!--                <com.zoyo.mvvmkotlindemo.ui.view.SuperLoadingProgressView-->
+        <!--                    android:id="@+id/loadingProgress"-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="wrap_content" />-->
+
+        <!--        <com.zoyo.mvvmkotlindemo.ui.view.RadarView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:background="@color/black_overlay" />-->
+
+        <!--        <com.zoyo.mvvmkotlindemo.ui.view.RoundImageView-->
+        <!--            android:id="@+id/id_qiqiu"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_margin="10dp"-->
+        <!--            android:src="@drawable/avatar" />-->
+
+        <!--        <com.zoyo.mvvmkotlindemo.ui.view.RoundImageView-->
+        <!--            android:layout_width="200dp"-->
+        <!--            android:layout_height="200dp"-->
+        <!--            android:layout_margin="10dp"-->
+        <!--            android:src="@drawable/avatar" />-->
+
+        <!--        <com.zoyo.mvvmkotlindemo.ui.view.RoundImageView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_margin="10dp"-->
+        <!--            android:src="@drawable/avatar" />-->
+
+        <!--        <com.zoyo.mvvmkotlindemo.ui.view.RoundImageView-->
+        <!--            android:id="@+id/id_meinv"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_margin="10dp"-->
+        <!--            android:src="@drawable/avatar"-->
+        <!--            app:borderRadius="20dp"-->
+        <!--            app:type="round" />-->
+
+        <!--        <com.zoyo.mvvmkotlindemo.ui.view.RoundImageView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_margin="10dp"-->
+        <!--            android:src="@drawable/avatar"-->
+        <!--            app:borderRadius="40dp"-->
+        <!--            app:type="round" />-->
+
+        <!--        <com.zoyo.mvvmkotlindemo.ui.view.RoundImageView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_margin="10dp"-->
+        <!--            android:src="@drawable/avatar"-->
+        <!--            app:borderRadius="60dp"-->
+        <!--            app:type="round" />-->
+
+
+        <!--        <com.zoyo.mvvmkotlindemo.ui.view.PathView-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="100dp" />-->
+
+        <!--        <com.zoyo.mvvmkotlindemo.ui.view.TextDrawView-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content" />-->
+
+        <!--        <com.zoyo.mvvmkotlindemo.ui.view.RegionView-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content" />-->
+
+        <!--        <com.zoyo.mvvmkotlindemo.ui.view.CanvasBasicView-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content" />-->
+
+    </LinearLayout>
+
+</ScrollView>

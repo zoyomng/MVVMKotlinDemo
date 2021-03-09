@@ -7,13 +7,14 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.zoyo.mvvmkotlindemo.R
-import com.zoyo.mvvmkotlindemo.core.base.BaseFragment
-import com.zoyo.mvvmkotlindemo.core.base.BaseViewModel
+import com.zoyo.core.base.BaseFragment
+import com.zoyo.core.base.BaseViewModel
+import com.zoyo.mvvmkotlindemo.BR
 import com.zoyo.mvvmkotlindemo.databinding.FragmentPageBinding
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-class PageFragment : BaseFragment<FragmentPageBinding>(R.layout.fragment_page) {
+class PageFragment : BaseFragment<FragmentPageBinding>(R.layout.fragment_page, BR.viewModel) {
     private val pageViewModel by viewModels<PageViewModel>()
 
     override fun getVM(): BaseViewModel {

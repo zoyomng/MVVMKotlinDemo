@@ -9,9 +9,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.zoyo.mvvmkotlindemo.R
-import com.zoyo.mvvmkotlindemo.core.base.BaseFragment
-import com.zoyo.mvvmkotlindemo.core.base.BaseViewModel
-import com.zoyo.mvvmkotlindemo.databinding.FragmentPageBinding
+import com.zoyo.mvvmkotlindemo.BR
+import com.zoyo.core.base.BaseFragment
+import com.zoyo.core.base.BaseViewModel
 import com.zoyo.mvvmkotlindemo.databinding.FragmentPageNetworkBinding
 import com.zoyo.mvvmkotlindemo.ui.page.ServiceLocator
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -22,7 +22,7 @@ import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.filter
 
 
-class PageWithNetworkFragment : BaseFragment<FragmentPageNetworkBinding>(R.layout.fragment_page_network) {
+class PageWithNetworkFragment : BaseFragment<FragmentPageNetworkBinding>(R.layout.fragment_page_network, BR.viewModel) {
 
     private val viewModel by viewModels<PageWithNetworkViewModel> {
         object : AbstractSavedStateViewModelFactory(this, null) {

@@ -2,8 +2,8 @@ package com.zoyo.mvvmkotlindemo.ui.page.page
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
-import com.zoyo.mvvmkotlindemo.App
-import com.zoyo.mvvmkotlindemo.core.base.BaseViewModel
+import com.zoyo.core.BaseApplication
+import com.zoyo.core.base.BaseViewModel
 import com.zoyo.mvvmkotlindemo.db.AppDatabase
 import com.zoyo.mvvmkotlindemo.db.entity.Cheese
 import com.zoyo.mvvmkotlindemo.db.ioThread
@@ -11,7 +11,7 @@ import com.zoyo.mvvmkotlindemo.db.ioThread
 
 class PageViewModel : BaseViewModel() {
 
-    private val dao = AppDatabase.get(App.appContext).cheeseDao()
+    private val dao = AppDatabase.get(BaseApplication.getContext()).cheeseDao()
 
     //kotlin中使用Pager支持的flow(也可以使用LiveData)
     val allCheeses = Pager(

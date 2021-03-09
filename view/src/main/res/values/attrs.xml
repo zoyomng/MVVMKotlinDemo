@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RecyclerView">
+        <attr name="adapter" format="reference" />
+    </declare-styleable>
+
+    <attr name="type">
+        <enum name="circle" value="0" />
+        <enum name="round" value="1" />
+    </attr>
+    <declare-styleable name="RoundImageView">
+        <attr name="borderRadius" format="dimension" />
+        <attr name="type" />
+    </declare-styleable>
+
+    <declare-styleable name="SpiderView">
+        <attr name="pointRadius" format="dimension" />
+        <attr name="pointNum" format="integer" />
+        <attr name="lineWidth" format="dimension" />
+        <attr name="lineAlpha" format="integer" />
+
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,91 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+    buildFeatures {
+        dataBinding = true
+    }
+
+}
+
+dependencies {
+
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation rootProject.ext.dependencies["appcompat"]
+
+    api rootProject.ext.dependencies["androidx-core-ktx"]
+    api rootProject.ext.dependencies["kotlin-stdlib"]
+    api rootProject.ext.dependencies["kotlin-coroutines"]
+
+    api rootProject.ext.dependencies["lifecycle-viewmodel-ktx"]
+    api rootProject.ext.dependencies["lifecycle-runtime-ktx"]
+    api rootProject.ext.dependencies["lifecycle-livedata-ktx"]
+    kapt rootProject.ext.dependencies["lifecycle-compiler"]
+
+    api rootProject.ext.dependencies["activity-ktx"]
+    api rootProject.ext.dependencies["fragment-ktx"]
+
+    api rootProject.ext.dependencies["preference"]
+    api rootProject.ext.dependencies["constraintlayout"]
+    api rootProject.ext.dependencies["recyclerview"]
+    api rootProject.ext.dependencies["swiperefreshlayout"]
+    api rootProject.ext.dependencies["material"]
+    api rootProject.ext.dependencies["navigation-fragment-ktx"]
+    api rootProject.ext.dependencies["navigation-ui-ktx"]
+    api rootProject.ext.dependencies["paging-runtime"]
+
+    api rootProject.ext.dependencies["okhttp3"]
+    api rootProject.ext.dependencies["okhttp3-logging-interceptor"]
+
+    api rootProject.ext.dependencies["retrofit2"]
+    api rootProject.ext.dependencies["retrofit2-converter-gson"]
+
+    api rootProject.ext.dependencies["gson"]
+
+    api rootProject.ext.dependencies["glide"]
+
+    api rootProject.ext.dependencies["room-runtime"]
+    kapt rootProject.ext.dependencies["room-compiler"]
+    api rootProject.ext.dependencies["room-ktx"]
+
+
+}

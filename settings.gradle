@@ -1,2 +1,9 @@
 include ':app'
+
+include ':core'
+//组件化开发
+include ':view'
+project(':view').projectDir = new File('view')
+
+
 rootProject.name = "MVVMKotlinDemo"

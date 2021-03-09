@@ -4,15 +4,16 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
 import com.zoyo.mvvmkotlindemo.R
-import com.zoyo.mvvmkotlindemo.core.base.BaseFragment
-import com.zoyo.mvvmkotlindemo.core.base.BaseViewModel
+import com.zoyo.core.base.BaseFragment
+import com.zoyo.core.base.BaseViewModel
+import com.zoyo.mvvmkotlindemo.BR
 import com.zoyo.mvvmkotlindemo.databinding.FragmentMonthBinding
 import java.util.*
 
 /**
  * Copyright (c) dtelec, Inc All Rights Reserved.
  */
-class MonthFragment : BaseFragment<FragmentMonthBinding>(R.layout.fragment_month) {
+class MonthFragment : BaseFragment<FragmentMonthBinding>(R.layout.fragment_month,BR.viewModel) {
 
     private val monthViewModel by viewModels<MonthViewModel>()
 

@@ -4,7 +4,6 @@ import android.content.Intent
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.SearchView.OnQueryTextListener
@@ -17,9 +16,9 @@ import androidx.navigation.ui.NavigationUI.setupWithNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.zoyo.mvvmkotlindemo.BR
 import com.zoyo.mvvmkotlindemo.R
-import com.zoyo.mvvmkotlindemo.core.base.BaseActivity
-import com.zoyo.mvvmkotlindemo.core.base.BaseViewModel
-import com.zoyo.mvvmkotlindemo.core.utils.L
+import com.zoyo.core.base.BaseActivity
+import com.zoyo.core.base.BaseViewModel
+import com.zoyo.core.utils.L
 import com.zoyo.mvvmkotlindemo.databinding.MainActivityBinding
 
 

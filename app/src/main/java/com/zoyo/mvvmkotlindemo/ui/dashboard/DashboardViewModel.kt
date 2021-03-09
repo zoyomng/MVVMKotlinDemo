@@ -2,7 +2,7 @@ package com.zoyo.mvvmkotlindemo.ui.dashboard
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.zoyo.mvvmkotlindemo.core.base.BaseViewModel
+import com.zoyo.core.base.BaseViewModel
 
 class DashboardViewModel : BaseViewModel() {
 

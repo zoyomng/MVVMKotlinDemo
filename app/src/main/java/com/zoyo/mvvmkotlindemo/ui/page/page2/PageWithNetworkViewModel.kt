@@ -3,7 +3,7 @@ package com.zoyo.mvvmkotlindemo.ui.page.page2
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.asFlow
 import androidx.paging.PagingData
-import com.zoyo.mvvmkotlindemo.core.base.BaseViewModel
+import com.zoyo.core.base.BaseViewModel
 import com.zoyo.mvvmkotlindemo.model.Repo
 import com.zoyo.mvvmkotlindemo.ui.page.GitHubRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
