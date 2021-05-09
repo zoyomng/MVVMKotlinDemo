@@ -14,12 +14,14 @@ import com.zoyo.mvvmkotlindemo.databinding.FragmentPageBinding
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-class PageFragment : BaseFragment<FragmentPageBinding>(R.layout.fragment_page, BR.viewModel) {
+class PageFragment : BaseFragment<FragmentPageBinding>() {
     private val pageViewModel by viewModels<PageViewModel>()
 
-    override fun getVM(): BaseViewModel {
-        return pageViewModel
-    }
+    override fun getVM(): BaseViewModel = pageViewModel
+
+    override fun getVariableId(): Int = BR.viewModel
+
+    override fun getLayoutId(): Int = R.layout.fragment_page
 
     override fun initialize() {
 
@@ -84,5 +86,6 @@ class PageFragment : BaseFragment<FragmentPageBinding>(R.layout.fragment_page, B
             pageViewModel.insert(newCheese)
         }
     }
+
 
 }

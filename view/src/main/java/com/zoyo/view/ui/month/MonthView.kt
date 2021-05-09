@@ -1,4 +1,4 @@
-package com.zoyo.view
+package com.zoyo.view.ui.month
 
 import android.content.Context
 import android.content.res.Resources
@@ -10,6 +10,7 @@ import android.text.TextPaint
 import android.util.AttributeSet
 import android.view.View
 import androidx.annotation.RequiresApi
+import com.zoyo.view.R
 import java.text.NumberFormat
 import java.util.*
 
@@ -42,7 +43,7 @@ internal class MonthView @JvmOverloads constructor(
     //    指当月第一天是星期中的哪一天
     private var mDayOfWeekStart = 0
 
-    val weekLabels = listOf<String>("日", "一", "二", "三", "四", "五", "六")
+    val weekLabels = listOf("日", "一", "二", "三", "四", "五", "六")
 
     //    一周的第一天以1为索引
     private var mWeekStart: Int = DEFAULT_WEEK_START
@@ -52,7 +53,7 @@ internal class MonthView @JvmOverloads constructor(
     private var mYear: Int = 0
 
     companion object {
-        private const val MAX_WEEKS_IN_MONTH = 6
+        private const val MAX_WEEKS_IN_MONTH = 7
         private const val DAYS_IN_WEEK = 7
         private const val DEFAULT_WEEK_START = Calendar.SUNDAY
 
@@ -176,7 +177,7 @@ internal class MonthView @JvmOverloads constructor(
             canvas.drawText(
                 weekLabels[label],
                 colCenter.toFloat(),
-                rowCenter.toFloat(),
+                rowCenter.toFloat() - halfLineHeight,
                 p
             )
             label++

@@ -13,13 +13,12 @@ import com.zoyo.mvvmkotlindemo.BR
 /**
  * zoyomng 2021/1/26
  */
-class ExtensionFragment :
-    BaseFragment<FragmentExtensionBinding>(R.layout.fragment_extension, BR.viewModel) {
+class ExtensionFragment : BaseFragment<FragmentExtensionBinding>() {
     private val viewModel by viewModels<ExtensionViewModel>()
 
-    override fun getVM(): BaseViewModel {
-        return viewModel
-    }
+    override fun getVM(): BaseViewModel = viewModel
+    override fun getVariableId(): Int = BR.viewModel
+    override fun getLayoutId(): Int = R.layout.fragment_extension
 
     override fun initialize() {
         dataBinding.btAntiShakeClick2.antiShakeClick {
@@ -27,4 +26,5 @@ class ExtensionFragment :
             L.e("点击了事件")
         }
     }
+
 }

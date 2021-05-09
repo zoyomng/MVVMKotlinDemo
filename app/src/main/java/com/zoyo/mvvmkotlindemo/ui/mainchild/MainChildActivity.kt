@@ -11,17 +11,22 @@ import com.zoyo.mvvmkotlindemo.BR
 /**
  * Copyright (c) dtelec, Inc All Rights Reserved.
  */
-class MainChildActivity :
-    BaseActivity<ActivityMainChildBinding>(R.layout.activity_main_child, BR.viewModel) {
+class MainChildActivity : BaseActivity<ActivityMainChildBinding>() {
+
     private val mainViewModel: MainViewModel by viewModels()
 
     override fun getVM(): BaseViewModel {
         return mainViewModel
     }
 
+    override fun getVariableId(): Int = BR.viewModel
+    override fun getLayoutId(): Int = R.layout.activity_main_child
+
     override fun initialize() {
         //操作栏上添加导航
         setSupportActionBar(dataBinding.toolBar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
+
+
 }

@@ -17,7 +17,8 @@ import kotlinx.coroutines.flow.*
  */
 
 
-class KotlinBasicFragment : RootFragment(R.layout.fragment_kotlin_basic) {
+class KotlinBasicFragment : RootFragment() {
+    override fun getLayoutId(): Int = R.layout.fragment_kotlin_basic
 
     override fun initialize() {
 //        test()

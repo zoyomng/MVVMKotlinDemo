@@ -7,10 +7,16 @@ import androidx.appcompat.app.AppCompatActivity
 /**
  * zoyomng 2021/1/24
  */
-abstract class RootActivity(@LayoutRes val layoutResId: Int) : AppCompatActivity(), IBaseView {
+abstract class RootActivity : AppCompatActivity(), IBaseView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(layoutResId)
+        setContentView(getLayoutId())
+        ActivityManager.instance.addActivity(this)
         initialize()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        ActivityManager.instance.removeActivity(this)
     }
 }

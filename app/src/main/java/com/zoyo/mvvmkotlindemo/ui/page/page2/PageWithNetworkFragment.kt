@@ -22,7 +22,7 @@ import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.filter
 
 
-class PageWithNetworkFragment : BaseFragment<FragmentPageNetworkBinding>(R.layout.fragment_page_network, BR.viewModel) {
+class PageWithNetworkFragment : BaseFragment<FragmentPageNetworkBinding>() {
 
     private val viewModel by viewModels<PageWithNetworkViewModel> {
         object : AbstractSavedStateViewModelFactory(this, null) {
@@ -39,9 +39,9 @@ class PageWithNetworkFragment : BaseFragment<FragmentPageNetworkBinding>(R.layou
         }
     }
 
-    override fun getVM(): BaseViewModel {
-        return viewModel
-    }
+    override fun getVM(): BaseViewModel = viewModel
+    override fun getLayoutId(): Int = R.layout.fragment_page_network
+    override fun getVariableId(): Int = BR.viewModel
 
     @FlowPreview
     @ExperimentalCoroutinesApi
@@ -98,5 +98,6 @@ class PageWithNetworkFragment : BaseFragment<FragmentPageNetworkBinding>(R.layou
             }
         }
     }
+
 
 }

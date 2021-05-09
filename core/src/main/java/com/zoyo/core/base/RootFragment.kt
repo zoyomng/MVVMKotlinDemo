@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 /**
  * zoyomng  2021/1/22
  */
-abstract class RootFragment(@LayoutRes val layoutResId: Int) : Fragment(), IBaseView {
+abstract class RootFragment : Fragment(), IBaseView {
 
     lateinit var containerView: View
     override fun onCreateView(
@@ -26,7 +26,7 @@ abstract class RootFragment(@LayoutRes val layoutResId: Int) : Fragment(), IBase
                            attachRoot为true时报错:此fragment对象已有父布局,需要先移除后添加)
        * */
 
-        containerView = inflater.inflate(layoutResId, container, false)
+        containerView = inflater.inflate(getLayoutId(), container, false)
         initialize()
         return containerView
     }

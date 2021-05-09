@@ -57,6 +57,7 @@ dependencies {
     api rootProject.ext.dependencies["kotlin-coroutines"]
 
     api rootProject.ext.dependencies["lifecycle-viewmodel-ktx"]
+    api rootProject.ext.dependencies["lifecycle-extensions"]
     api rootProject.ext.dependencies["lifecycle-runtime-ktx"]
     api rootProject.ext.dependencies["lifecycle-livedata-ktx"]
     kapt rootProject.ext.dependencies["lifecycle-compiler"]

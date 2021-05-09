@@ -10,13 +10,14 @@ import com.zoyo.mvvmkotlindemo.BR
 import com.zoyo.mvvmkotlindemo.databinding.FragmentDashboardBinding
 import com.zoyo.mvvmkotlindemo.ui.mainchild.MainChildActivity
 
-class DashboardFragment :
-    BaseFragment<FragmentDashboardBinding>(R.layout.fragment_dashboard, BR.viewModel) {
+class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
     private val dashboardViewModel: DashboardViewModel by viewModels()
 
-    override fun getVM(): BaseViewModel {
-        return dashboardViewModel
-    }
+    override fun getVM(): BaseViewModel = dashboardViewModel
+
+    override fun getVariableId(): Int = BR.viewModel
+
+    override fun getLayoutId(): Int = R.layout.fragment_dashboard
 
     override fun initialize() {
         dataBinding.textDashboard.setOnClickListener(View.OnClickListener {

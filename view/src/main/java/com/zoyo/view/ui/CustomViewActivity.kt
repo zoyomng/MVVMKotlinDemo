@@ -8,7 +8,8 @@ import com.zoyo.view.pie.RingChartView
 /**
  * Copyright (c) dtelec, Inc All Rights Reserved.
  */
-class CanvasActivity : RootActivity(R.layout.activity_canvas) {
+class CustomViewActivity : RootActivity() {
+    override fun getLayoutId(): Int = R.layout.activity_canvas
 
     override fun initialize() {
 //        val btStart = containerView.findViewById<Button>(R.id.btStart)

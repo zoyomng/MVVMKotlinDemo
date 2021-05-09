@@ -51,7 +51,7 @@
         android:label="PageWithNetworkFragment" />
     <fragment
         android:id="@+id/monthFragment"
-        android:name="com.zoyo.mvvmkotlindemo.ui.month.MonthFragment"
+        android:name="com.zoyo.view.ui.month.MonthFragment"
         android:label="MonthFragment" />
     <fragment
         android:id="@+id/kotlinBasicFragment"

@@ -22,13 +22,15 @@ import com.zoyo.core.utils.L
 import com.zoyo.mvvmkotlindemo.databinding.MainActivityBinding
 
 
-class MainActivity :
-    BaseActivity<MainActivityBinding>(R.layout.main_activity, BR.viewModel) {
+class MainActivity : BaseActivity<MainActivityBinding>() {
 
     private val mainViewModel: MainViewModel by viewModels()
-    override fun getVM(): BaseViewModel {
-        return mainViewModel
-    }
+
+    override fun getLayoutId(): Int = R.layout.main_activity
+
+    override fun getVariableId(): Int = BR.viewModel
+
+    override fun getVM(): BaseViewModel = mainViewModel
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     lateinit var navController: NavController
@@ -150,5 +152,12 @@ class MainActivity :
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
+
+    override fun onBackPressed() {
+        val navController = findNavController(R.id.nav_host_fragment)
+        navController.navigateUp()
+        super.onBackPressed()
+    }
+
 
 }

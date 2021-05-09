@@ -12,10 +12,7 @@ import androidx.fragment.app.Fragment
 /**
  * Copyright (c) dtelec, Inc All Rights Reserved.
  */
-abstract class BaseFragment<T : ViewDataBinding>(
-    @LayoutRes val layoutResID: Int,
-    val variableId: Int,
-) : Fragment(), IBaseView {
+abstract class BaseFragment<T : ViewDataBinding> : Fragment(), IBaseView {
 
     lateinit var dataBinding: T
     private lateinit var viewModel: BaseViewModel
@@ -27,7 +24,7 @@ abstract class BaseFragment<T : ViewDataBinding>(
         savedInstanceState: Bundle?,
     ): View? {
 
-        dataBinding = DataBindingUtil.inflate(inflater, layoutResID, container, false)
+        dataBinding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false)
         return dataBinding.root
     }
 
@@ -37,12 +34,17 @@ abstract class BaseFragment<T : ViewDataBinding>(
 
         viewModel = getVM()
 
-        dataBinding.setVariable(variableId, viewModel)
-//        lifecycle.addObserver(viewModel)
+        dataBinding.setVariable(getVariableId(), viewModel)
+        lifecycle.addObserver(viewModel)
         initialize()
     }
 
+    /**
+     * 将ViewModel要绑定的变量值variableId(xml布局文件->layout->data->variable:name)
+     */
+    abstract fun getVariableId(): Int
     abstract fun getVM(): BaseViewModel
+
 
     override fun onDestroy() {
         super.onDestroy()
@@ -50,9 +52,9 @@ abstract class BaseFragment<T : ViewDataBinding>(
             dataBinding.unbind()
         }
         //解除ViewModel对生命周期的感应
-//        if (this::viewModel.isInitialized) {
-//            lifecycle.removeObserver(viewModel)
-//        }
+        if (this::viewModel.isInitialized) {
+            lifecycle.removeObserver(viewModel)
+        }
     }
 
 }
