@@ -26,6 +26,9 @@
         <action
             android:id="@+id/action_navigation_home_to_extensionFragment"
             app:destination="@id/extensionFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_skinFragment"
+            app:destination="@id/skinFragment" />
     </fragment>
 
     <fragment
@@ -62,4 +65,8 @@
         android:id="@+id/extensionFragment"
         android:name="com.zoyo.mvvmkotlindemo.ui.extension.ExtensionFragment"
         android:label="ExtensionFragment" />
+    <fragment
+        android:id="@+id/skinFragment"
+        android:name="com.zoyo.mvvmkotlindemo.ui.skin.SkinFragment"
+        android:label="SkinFragment" />
 </navigation>

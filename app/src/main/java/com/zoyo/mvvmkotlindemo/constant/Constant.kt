@@ -51,6 +51,13 @@ class Constant {
                 subjectTitle = "kotlin-扩展",
                 subjectDesc = "kotlin-扩展认知",
                 destinationId = R.id.action_navigation_home_to_extensionFragment
+            ),
+
+            Subject(
+                id = 7,
+                subjectTitle = "换肤",
+                subjectDesc = "加载本地图片",
+                destinationId = R.id.action_navigation_home_to_skinFragment
             )
 
         )
